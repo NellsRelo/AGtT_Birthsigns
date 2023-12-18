@@ -1,0 +1,13 @@
+// Grant a variation on Arcane Recovery, a minimum of your proficiency bonus' worth of spell slots.
+new entry "AGTT_BS_Mage"
+type "PassiveData"
+data "Boosts" "UnlockSpell("AGTT_Shout_Fay")"
+data "DisplayName" "h4952aaacge03cg423cga6b8g75374913d7cc"
+data "Description" "h6fa8d5bdg0ac7g498eg8ef1gf82584961700"
+data "ExtraDescription" "hf13bbbe9g2a78g4981ga539gd8023145fea6"
+
+// Regain your intelligence modifier in spell slots once/long rest
+new entry "AGTT_Shout_Fay"
+type "SpellData"
+data "DisplayName" "h4952aaacge03cg423cga6b8g75374913d7cc"
+data "Description" ""

@@ -1,0 +1,7 @@
+// 
+new entry "AGTT_BS_Thief"
+type "PassiveData"
+data "Boosts" "Ability(Dexterity, 1)"
+data "DisplayName" "h181d015bg7617g4b34ga34fga6f43921e7a3"
+data "Description" "hf6c8b20fg15bcg4fcega3fagb43e522734a1"
+data "ExtraDescription" "hff032e62ge54bg4574gb860ge60f9885e319"

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="328"/>
+  <region id="PassiveLists">
+    <node id="root">
+      <children>
+        <node id="PassiveList">
+          <attribute id="Comment" type="LSString" value="Birthsign Selection"/>
+          <attribute id="Passives" type="LSString" value="AGTT_BS_Warrior;AGTT_BS_Mage;AGTT_BS_Thief;AGTT_BS_Lady;AGTT_BS_Steed;AGTT_BS_Lord;AGTT_BS_Apprentice;AGTT_BS_Atronach;AGTT_BS_Ritual;AGTT_BS_Lover;AGTT_BS_Shadow_AGTT_BS_Tower;AGTT_BS_Serpent"/>
+          <attribute id="UUID" type="guid" value="8f78c408-85c7-47c1-9f25-cd3fe4ef4f27"/>
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

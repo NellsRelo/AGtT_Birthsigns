@@ -1,0 +1,7 @@
+// Add Twice your level to HP upon leveling up
+new entry "AGTT_BS_Lady"
+type "PassiveData"
+data "Boosts" "IncreaseMaxHP(Level*2)"
+data "DisplayName" "h7adece51ga297g4af3gb491g485b5f6a2885"
+data "Description" "ha647c856g0e6fg48dfg933eg386eef787949"
+data "ExtraDescription" "h211c7b5fgf041g4e5eg90b5ge7bd39d1a2a8"

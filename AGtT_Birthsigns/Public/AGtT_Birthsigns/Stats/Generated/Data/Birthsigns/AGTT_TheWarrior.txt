@@ -1,0 +1,11 @@
+// Toggleable passive to add your strength modifier to melee damage once per short rest
+new entry "AGTT_BS_Warwyrd"
+type "PassiveData"
+data "DisplayName" "he3364f4egddedg49e0gbd32gfb03d07276dc"
+data "Description" "h8cb2424bg7611g4541g813cgc5c88923223c"
+data "Icon" "Spell_Divination_TrueStrike"
+data "Conditions" "IsAttack()"
+data "EnabledContext" "OnCastResolved;OnShortRest"
+data "ToggleOnFunctors" "CharacterWeaponDamage(max(1,Cause.StrengthModifier),MainMeleeWeaponDamageType)"
+data "Properties" "IsToggled;ToggledDefaultAddToHotbar;OncePerShortRest"
+data "ToggleOffContext" "OnDamage"

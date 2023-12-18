@@ -1,0 +1,10 @@
+// Can't regen spell slots above level 3 (or maybe above your prof bonus?) 
+// Regen spell slots when attacked by a hostile spell. Gain spell slot of equal level to what was cast against you (or lowest possible?)
+// Might need to Use SE for this one
+new entry "AGTT_BS_Atronach"
+
+new entry "AGTT_StuntedMagicka"
+type "PassiveData"
+
+new entry "AGTT_Wombburn"
+type "PassiveData"
