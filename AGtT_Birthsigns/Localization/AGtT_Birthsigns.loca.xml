@@ -24,7 +24,7 @@
   <content contentuid="ha838b04bgf300g4d3dg8946g3d1297207c59" version="1">Charioteer</content>
   <content contentuid="h507fb25cga501g4adbg92dcgb565e5d7a7b0" version="1">Those born under the sign of the Speed gain an additional [1] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;.</content>
   <content contentuid="h22044802gbf33g40c8g8452g5196864d4da4" version="1">Trollkin</content>
-  <content contentuid="h3fd84b0bg5e86g4197ga28cgbbace8efdcc2" version="1">Those born under the sign of the Lord are &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerable&lt;/LSTag&gt; to Fire. They also gain the ability &lt;LSTag Type="Spell" Tooltip="AGTT_BS_BloodOfTheNorth"&gt;Blood of the North&lt;/LSTag&gt;, which allows them to regenerate health.</content>
+  <content contentuid="h3fd84b0bg5e86g4197ga28cgbbace8efdcc2" version="1">Those born under the sign of the Lord are &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerable&lt;/LSTag&gt; to Fire. They also gain the power &lt;LSTag Type="Spell" Tooltip="AGTT_BS_BloodOfTheNorth"&gt;Blood of the North&lt;/LSTag&gt;, which allows them to regenerate health.</content>
   <content contentuid="h3cdcb660g35c7g40e8gbaf4gd9669fb88d1f" version="1">The Lord</content>
   <content contentuid="h535f1564g022ag4aedgba1eg0ea3b95f11e1" version="1">The Lord's Season is First Seed, and he oversees all of Tamriel during the planting. Those born under the sign of the Lord are stronger and healthier than those born under other signs.</content>
   <content contentuid="h3be9c98fgfa5dg46e8g850eg5b08863dc43c" version="1">Elfborn</content>
