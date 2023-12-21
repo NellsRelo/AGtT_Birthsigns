@@ -6,11 +6,15 @@
   <content contentuid="h30dbe16eg2638g42b1ga135g5a7b2da4f97b" version="1">The Mage</content>
   <content contentuid="hf13bbbe9g2a78g4981ga539gd8023145fea6" version="1">The Mage is a Guardian Constellation who's Season is Rain's Hand, when Magicka was first used by mankind. His charges are the Apprentice, the Atronach, and the Ritual. Those born under the Mage have more Magicka and talent for all kinds of spellcasting, but are often arrogant and absent-minded.</content>
   <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="1">Fay</content>
-  <content contentuid="h6fa8d5bdg0ac7g498eg8ef1gf82584961700" version="1">Those born under the sign of the Mage may add +1 to their Intelligence or to their Wisdom Ability Scores.</content>
+  <content contentuid="h6fa8d5bdg0ac7g498eg8ef1gf82584961700" version="1">Those born under the sign of the Mage have the power to restore &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slots&lt;/LSTag&gt;.</content>
+  <content contentuid="79841406-f0c4-40c4-85cb-08bdc6cefa50" version="1">Those born under the sign of the Mage have the power to restore a Level [1] &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.</content>
+  <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="2">Fay (Level 1)</content>
+  <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="3">Fay (Level 2)</content>
+  <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="4">Fay (Level 3)</content>
   <content contentuid="h5eca1efdg2962g4e4fga2f1g8ddbdcc0bdac" version="1">The Thief</content>
   <content contentuid="hff032e62ge54bg4574gb860ge60f9885e319" version="1">The Thief is the last Guardian Constellation, and her Season is the darkest month of Evening Star. Her charges are the Lover, the Shadow, and the Tower. Those born under the sign of the Thief are not typically thieves, though they take risks more often and only rarely come to harm. They will run out of luck eventually, however, and rarely live as long as those born under other signs.</content>
   <content contentuid="h181d015bg7617g4b34ga34fga6f43921e7a3" version="1">Hara</content>
-  <content contentuid="hf6c8b20fg15bcg4fcega3fagb43e522734a1" version="1">Those born under the sign of the Thief may add +1 to their Dexterity or to their Charisma Ability Scores.</content>
+  <content contentuid="hf6c8b20fg15bcg4fcega3fagb43e522734a1" version="1">Those born under the sign of the Thief can make a &lt;LSTag Type="Spell" Tooltip="Target_SneakAttack"&gt;Sneak Attack&lt;/LSTag&gt;. If they already know Sneak Attack, they have an additional &lt;LSTag Type="ActionResource" Tooltip="SneakAttack_Charge"&gt;Sneak Attack Charge&lt;/LSTag&gt;.</content>
   <content contentuid="h8f9ca080g6b83g44c9gb560ga9a57a186c11" version="1">The Lady</content>
   <content contentuid="h211c7b5fgf041g4e5eg90b5ge7bd39d1a2a8" version="1">The Lady is one of the Warrior's charges, and her Season is Hearthfire. Those born under the sign of the Lady are kind and tolerant.</content>
   <content contentuid="h7adece51ga297g4af3gb491g485b5f6a2885" version="1">Lady's Favor</content>
@@ -18,7 +22,7 @@
   <content contentuid="h0f88b1fdgac95g459bgbbaeg2de069cb2487" version="1">The Steed</content>
   <content contentuid="hb31feffeg4e1ag4103gbdd6g9150b887ccfa" version="1">The Steed is one of the Warrior's charges, and her Season is Mid Year. Those born under the sign of the Steed are impatient, and always hurrying from one place to another.</content>
   <content contentuid="ha838b04bgf300g4d3dg8946g3d1297207c59" version="1">Charioteer</content>
-  <content contentuid="h507fb25cga501g4adbg92dcgb565e5d7a7b0" version="1">Those born under the sign of the Speed gain an additional [1] of movement.</content>
+  <content contentuid="h507fb25cga501g4adbg92dcgb565e5d7a7b0" version="1">Those born under the sign of the Speed gain an additional [1] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;.</content>
   <content contentuid="h22044802gbf33g40c8g8452g5196864d4da4" version="1">Trollkin</content>
   <content contentuid="h3fd84b0bg5e86g4197ga28cgbbace8efdcc2" version="1">Those born under the sign of the Lord are vulnerable to Fire. They also gain the ability Blood of the North, which allows them to regenerate health.</content>
   <content contentuid="h3cdcb660g35c7g40e8gbaf4gd9669fb88d1f" version="1">The Lord</content>
