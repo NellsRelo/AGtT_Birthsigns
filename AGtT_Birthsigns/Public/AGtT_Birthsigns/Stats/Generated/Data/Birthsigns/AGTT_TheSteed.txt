@@ -1,8 +1,8 @@
 // Gain 1.5m Movement
 new entry "AGTT_BS_Steed"
 type "PassiveData"
-data "Boosts" "ActionResource(Movement, 1.5, 0)"
+data "Boosts" "ActionResource(Movement, 3, 0)"
 data "DisplayName" "ha838b04bgf300g4d3dg8946g3d1297207c59"
 data "Description" "h507fb25cga501g4adbg92dcgb565e5d7a7b0"
-data "DescriptionParams" "Distance(1.5)"
+data "DescriptionParams" "Distance(3)"
 data "ExtraDescription" "hb31feffeg4e1ag4103gbdd6g9150b887ccfa"

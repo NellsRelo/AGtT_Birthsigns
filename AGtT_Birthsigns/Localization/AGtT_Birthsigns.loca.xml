@@ -7,7 +7,7 @@
   <content contentuid="hf13bbbe9g2a78g4981ga539gd8023145fea6" version="1">The Mage is a Guardian Constellation who's Season is Rain's Hand, when Magicka was first used by mankind. His charges are the Apprentice, the Atronach, and the Ritual. Those born under the Mage have more Magicka and talent for all kinds of spellcasting, but are often arrogant and absent-minded.</content>
   <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="1">Fay</content>
   <content contentuid="h6fa8d5bdg0ac7g498eg8ef1gf82584961700" version="1">Those born under the sign of the Mage have the power to restore &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slots&lt;/LSTag&gt;.</content>
-  <content contentuid="79841406-f0c4-40c4-85cb-08bdc6cefa50" version="1">Those born under the sign of the Mage have the power to restore a Level [1] &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.</content>
+  <content contentuid="hc62a3b00g5b04g4355gaaefgc4a0dfab32b8" version="1">Those born under the sign of the Mage have the power to restore a Level [1] &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.</content>
   <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="2">Fay (Level 1)</content>
   <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="3">Fay (Level 2)</content>
   <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="4">Fay (Level 3)</content>
@@ -22,7 +22,7 @@
   <content contentuid="h0f88b1fdgac95g459bgbbaeg2de069cb2487" version="1">The Steed</content>
   <content contentuid="hb31feffeg4e1ag4103gbdd6g9150b887ccfa" version="1">The Steed is one of the Warrior's charges, and her Season is Mid Year. Those born under the sign of the Steed are impatient, and always hurrying from one place to another.</content>
   <content contentuid="ha838b04bgf300g4d3dg8946g3d1297207c59" version="1">Charioteer</content>
-  <content contentuid="h507fb25cga501g4adbg92dcgb565e5d7a7b0" version="1">Those born under the sign of the Speed gain an additional [1] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;.</content>
+  <content contentuid="h507fb25cga501g4adbg92dcgb565e5d7a7b0" version="1">Those born under the sign of the Steed gain an additional [1] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;.</content>
   <content contentuid="h22044802gbf33g40c8g8452g5196864d4da4" version="1">Trollkin</content>
   <content contentuid="h3fd84b0bg5e86g4197ga28cgbbace8efdcc2" version="1">Those born under the sign of the Lord are &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerable&lt;/LSTag&gt; to Fire. They also gain the power &lt;LSTag Type="Spell" Tooltip="AGTT_BS_BloodOfTheNorth"&gt;Blood of the North&lt;/LSTag&gt;, which allows them to regenerate health.</content>
   <content contentuid="h3cdcb660g35c7g40e8gbaf4gd9669fb88d1f" version="1">The Lord</content>
@@ -32,29 +32,29 @@
   <content contentuid="h78795127g018bg4dfag80c6g27bd2aec6f90" version="1">The Apprentice</content>
   <content contentuid="he2abacb3gaefeg429agba51gc5960d48e096" version="1">The Apprentice's Season is Sun's Height. Those born under the sign of the Apprentice have a special affinity for magic of all kinds, but are equally as vulnerable to it.</content>
   <content contentuid="h3b87f330g49e9g48ffgb735g4ecc81ab7474" version="1">The Ritual</content>
-  <content contentuid="h8a8922acge06cg4702gbcffgfff472010938" version="1">You receive the powers of Mara's Gift and Blessed Word</content>
+  <content contentuid="h8a8922acge06cg4702gbcffgfff472010938" version="1">You receive the powers of &lt;LSTag Type="Spell" Tooltip="AGTT_BS_MarasGift"&gt;Mara's Gift&lt;/LSTag&gt; and &lt;LSTag Type="Spell" Tooltip="AGTT_BS_BlessedWord"&gt;Blessed Word&lt;/LSTag&gt;.</content>
   <content contentuid="h603ec453gaa81g4944g831egc8b2ef411c28" version="1">Mooncalf</content>
-  <content contentuid="h56d84ed2g45ebg48b4gbce8g8ed1984dcdc4" version="1">You have proficiency in Performance, Persuasion, and Athletics. You also have the ability Lover's Embrace.</content>
+  <content contentuid="h56d84ed2g45ebg48b4gbce8g8ed1984dcdc4" version="1">You have &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in &lt;LSTag Tooltip="Performance"&gt;Performance&lt;/LSTag&gt;, &lt;LSTag Tooltip="Persuasion"&gt;Persuasion&lt;/LSTag&gt;, and &lt;LSTag Tooltip="Athletics"&gt;Athletics&lt;/LSTag&gt;. You also have the power &lt;LSTag Type="Spell" Tooltip="AGTT_BS_LoversEmbrace"&gt;Lover's Embrace&lt;/LSTag&gt;.</content>
   <content contentuid="hc486d6a4gc7b4g4a12g817cge126b7f602c7" version="1">Moonshadow</content>
-  <content contentuid="h9b656c09g4549g47b8g864eg2c2bdff24020" version="1">You have proficiency in Stealth, and gain the power Moonshadow.</content>
+  <content contentuid="h9b656c09g4549g47b8g864eg2c2bdff24020" version="1">You have &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in &lt;LSTag Tooltip="Stealth"&gt;Stealth&lt;/LSTag&gt;, and gain the power &lt;LSTag Type="Spell" Tooltip="AGTT_BS_Moonshadow"&gt;Moonshadow&lt;/LSTag&gt;.</content>
   <content contentuid="hb9e8a81dgb1ddg4097g87f4gb3694495b430" version="1">Warden</content>
-  <content contentuid="hf04af7fcg44e4g4e23g84b1gf12db2df615c" version="1">Those born under the sign of the Tower are proficient in Sleight of Hand, have the power to unlock objects.</content>
+  <content contentuid="hf04af7fcg44e4g4e23g84b1gf12db2df615c" version="1">Those born under the sign of the Tower have &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in &lt;LSTag Tooltip="SleightOfHand"&gt;Sleight Of Hand&lt;/LSTag&gt;, have the &lt;LSTag Type="Spell" Tooltip="AGTT_BS_TowerKey"&gt;Tower Key&lt;/LSTag&gt; power.</content>
   <content contentuid="he571c6bbg0404g4323gb2efgf0256af86ba4" version="1">Blood of the North</content>
   <content contentuid="hd04cc5ebgb2abg4267ga2d2gfd778df84c23" version="1">Your Lordly blood heals you for 3 points at the beginning of each of your turns for the duration of the power.</content>
   <content contentuid="h568964c9g3e17g4b55g8d40ge484c402b613" version="1">Your Lordly blood is giving you [1] at the start of each turn.</content>
   <content contentuid="hea6221fcg24c8g4546g8fc4g406869ee4415" version="1">Mara's Gift</content>
-  <content contentuid="h4d852aadgf981g4f2fgbf77g67d4cf7bb599" version="1">Once per short or long rest, you may restore an amount of hit points equal to [1].</content>
+  <content contentuid="h4d852aadgf981g4f2fgbf77g67d4cf7bb599" version="1">Once per short or long rest, you may restore an amount of &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt; equal to [1].</content>
   <content contentuid="h2a1773b9g0df2g4b5ag8527gb2be622ac4ce" version="1">Blessed Word</content>
-  <content contentuid="h18cc697bga294g4c89ga6f4gb40cfff89f48" version="1">All undead within a 10 foot sphere within range are frightened. You may use this power once per long rest.</content>
+  <content contentuid="h18cc697bga294g4c89ga6f4gb40cfff89f48" version="1">All &lt;LSTag Type="Passive" Tooltip="Undead"&gt;undead&lt;/LSTag&gt; within a 10 foot sphere within range are frightened.</content>
   <content contentuid="h5feb5228g5490g47d5g9de2gbf60bf7a8889" version="1">Lover's Embrace</content>
-  <content contentuid="h6572523bg0c66g4c18gabdbg5eb53389707c" version="1">You reach out to embrace a creature. The target must make a Willpower saving throw against your Spell Save DC.</content>
+  <content contentuid="h6572523bg0c66g4c18gabdbg5eb53389707c" version="1">You reach out to embrace a creature. The target must make a Willpower &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; against your &lt;LSTag Tooltip="DifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt;.</content>
   <content contentuid="h0a32555egc354g467cg807fgf55fc038ffe2" version="1">Moonshadow</content>
-  <content contentuid="hafb80940g9e61g4c0fgbb8dgf4ed697126a5" version="1">When using this power, you and the items you carry are invisible. This invisibility lasts until either the duration ends, or you declare an action, including picking up an item or opening a door.</content>
+  <content contentuid="hafb80940g9e61g4c0fgbb8dgf4ed697126a5" version="1">When using this power, you and the items you carry are &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt;.</content>
   <content contentuid="h6de31d44g06eeg4294ga7a1g7d9d63eb4b53" version="1">Tower Key</content>
-  <content contentuid="he4cb6a73g762eg46degb95dg2d45ba066abf" version="1">Once per long rest, you may unlock any locked object.</content>
+  <content contentuid="he4cb6a73g762eg46degb95dg2d45ba066abf" version="1">You may unlock any object locked by non-magical means.</content>
   <content contentuid="hb1151358gf7adg4b09gadfbg6b4aba6468bd" version="1">Star-Curse</content>
-  <content contentuid="hc378f8c6gbb8eg4289ga863g8aaf9ef1c963" version="1">Once per long rest, you can inflict poison on a creature that you touch, causing them to take [1] per turn for the duration of the power.</content>
+  <content contentuid="hc378f8c6gbb8eg4289ga863g8aaf9ef1c963" version="1">Once per long rest, you can inflict &lt;LSTag Type="Status" Tooltip="POISONED"&gt;Poisoned&lt;/LSTag&gt; on a creature that you touch, causing them to take [1] per turn for the duration of the power.</content>
   <content contentuid="hd6d2a89dgcd2eg4e8fg9d7eg1732ae139a7f" version="1">Star-Cursed</content>
-  <content contentuid="hb200e35dg898eg45cdga7a5g4696a3cecd82" version="1">You've been cursed by one born under the sign of the Serpent. At the end of each turn, you take [1].</content>
-  <content contentuid="65883f56-3259-4a6f-82f8-e17bdda6acdf" version="1">You've cursed a character with your Star-Curse. You share in the pain, taking [1].</content>
+  <content contentuid="hb200e35dg898eg45cdga7a5g4696a3cecd82" version="1">You've been &lt;LSTag Type="Status" Tooltip="AGTT_STATUS_STARCURSE"&gt;cursed&lt;/LSTag&gt; by one born under the sign of the Serpent. At the end of each turn, you take [1].</content>
+  <content contentuid="h41e412d3g6c5cg445bgba53g8f752aac5a24" version="1">You've cursed a character with your &lt;LSTag Type="Status" Tooltip="AGTT_STATUS_STARCURSE"&gt;Star-Curse&lt;/LSTag&gt;. You share in the pain, taking [1].</content>
 </contentList>

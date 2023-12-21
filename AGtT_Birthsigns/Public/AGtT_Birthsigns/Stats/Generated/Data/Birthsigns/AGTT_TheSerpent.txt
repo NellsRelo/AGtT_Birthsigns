@@ -20,8 +20,6 @@ data "SpellProperties" "ApplyStatus(AGTT_STATUS_STARCURSE, 100, 9);SELF:ApplySta
 data "TooltipStatusApply" "ApplyStatus(AGTT_STATUS_STARCURSE, 100, 9)"
 data "TooltipDamageList" "DealDamage(1d6+SpellCastingAbilityModifier, Poison)"
 data "TargetRadius" "MainMeleeWeaponRange"
-data "PrepareEffect" "VFX_Spells_Prepare_Arcane_Damage_Poison_R_HandFX_01:Dummy_R_HandFX::0:None::None::0:0::::;VFX_Spells_Prepare_Arcane_Damage_Poison_R_HandFX_Textkey_01:Dummy_R_HandFX:VFX_Prepare_01:0:None::None::0:0::::"
-data "CastEffect" "VFX_Spells_Cast_Damage_Poison_TargetSingle_CastFX_Textkey_01:Dummy_CastFX:VFX_Somatic_01:0:None::None::0:0::::;VFX_Spells_Cast_Damage_Poison_TargetSingle_CastFX_Textkey_02:Dummy_CastFX:VFX_Somatic_02:0:None::None::0:0::::"
 data "CastTextEvent" "Cast"
 data "CastSound" "Spell_Cast_Damage_Poison_PoisonSpray_L0"
 data "CycleConditions" "Enemy() and not Dead()"
