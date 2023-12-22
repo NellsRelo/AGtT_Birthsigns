@@ -47,6 +47,12 @@
           <attribute id="UUID" type="guid" value="ecb6ee29-5805-474b-9eb7-1d5ee7b89eba"/>
         </node>
         <node id="Background">
+          <attribute id="Description" type="TranslatedString" handle="h776c5e72g00dcg4346g8f1fgea07f83d9b16" version="6"/>
+          <attribute id="DisplayName" type="TranslatedString" handle="he3a1e8d2gb7b6g408ag8ec9gcf82ab5202db" version="1"/>
+          <attribute id="Passives" type="LSString" value="AGTT_StuntedMagicka;AGTT_Wombburn"/>
+          <attribute id="UUID" type="guid" value="8c1d5393-fc70-4fc2-bd75-11149db5ab93"/>
+        </node>
+        <node id="Background">
           <attribute id="Description" type="TranslatedString" handle="h76ebfe12g7c8cg4759g9f1fge267c2751b4d" version="6"/>
           <attribute id="DisplayName" type="TranslatedString" handle="hd2840886g296cg4cddg8714g799015b18ef1" version="1"/>
           <attribute id="Passives" type="LSString" value="AGTT_BS_TheLover"/>

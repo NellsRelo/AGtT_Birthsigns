@@ -87,7 +87,7 @@
   <content contentuid="h3893bd4bg39e7g410egb2b2g32f1e87d0098" version="1">The Serpent</content>
   <content contentuid="h94bb289fg1f62g40c5gbd1egb76a9e73b7af" version="1">The Serpent wanders about in the sky and has no Season, though its motions are predictable to a degree. No characteristics are common to all who are born under the sign of the Serpent. Those born under this sign are the most blessed and the most cursed.
 
-    Passive: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_EverRoam_Passive"&gt;Ever-Roaming&lt;/LSTag&gt;
+    Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_EverRoam_Passive"&gt;Ever-Roaming&lt;/LSTag&gt;
     Powers: &lt;LSTag Type="Spell" Tooltip="AGTT_BS_StarCurse"&gt;Star-Curse&lt;/LSTag&gt;</content>
     <content contentuid="h19a1234fg4650g4ad1gb56fgeb5b79d98f43" version="1">Ever-Roaming</content>
     <content contentuid="h00fa8471gcb71g4bdcg81e1g5d99b94e1398" version="1">Gain an additional Bonus Action.</content>
@@ -97,4 +97,13 @@
   <content contentuid="hd6d2a89dgcd2eg4e8fg9d7eg1732ae139a7f" version="1">Star-Cursed</content>
   <content contentuid="hb200e35dg898eg45cdga7a5g4696a3cecd82" version="1">You've been &lt;LSTag Type="Status" Tooltip="AGTT_STATUS_STARCURSE"&gt;cursed&lt;/LSTag&gt; by one born under the sign of the Serpent. At the end of each turn, you take [1].</content>
   <content contentuid="h41e412d3g6c5cg445bgba53g8f752aac5a24" version="1">You've cursed a character with your &lt;LSTag Type="Status" Tooltip="AGTT_STATUS_STARCURSE"&gt;Star-Curse&lt;/LSTag&gt;. You share in the pain, taking [1].</content>
+  <content contentuid="he3a1e8d2gb7b6g408ag8ec9gcf82ab5202db" version="1">The Atronach</content>
+  <content contentuid="h776c5e72g00dcg4346g8f1fgea07f83d9b16" version="1">The Atronach's Season is Sun's Dusk. Those born under this sign are natural Sorcerers with deep reserves of Magicka, but they cannot generate Magicka of their own.
+
+    Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_EverRoam_Passive"&gt;Stunted Magicka&lt;/LSTag&gt;,  &lt;LSTag Type="Passive" Tooltip="AGTT_BS_EverRoam_Passive"&gt;Wombburn&lt;/LSTag&gt;
+  </content>
+  <content contentuid="hb33aa540g1a12g4334gbbf9g5e0c0c1b8077" version="1">Stunted Magicka</content>
+  <content contentuid="hb0abe7c3g1cf9g4340gb694g0c7152057071" version="1">You cannot recover Spell Slots via Short or Long Rests. To recover these, you must be the target of a hostile Spell. You will gain a Spell Slot of equal Spell Level to what was cast on you.</content>
+  <content contentuid="h0a0a7e38g7f5dg4593gbf97g64cb718d1870" version="1">Wombburn</content>
+  <content contentuid="hf8dc7ab2geb1fg4982gb609g5f53e2d49c96" version="1">You have resistance to damage from Magical sources, and gain an Atronach Spell Slot each level.</content>
 </contentList>
