@@ -8,7 +8,8 @@ data "Boosts" "ProficiencyBonus(Skill, SleightOfHand);UnlockSpell(AGTT_BS_TowerK
 // TODO: Needs to be locked only by non-magical means
 new entry "AGTT_BS_TowerKey"
 type "SpellData"
-using "Knock"
+using "Target_Knock"
+data "Level" ""
 data "DisplayName" "h6de31d44g06eeg4294ga7a1g7d9d63eb4b53"
 data "Description" "he4cb6a73g762eg46degb95dg2d45ba066abf"
 data "TargetRadius" "MainMeleeWeaponRange"

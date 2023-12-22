@@ -17,8 +17,8 @@
           <attribute id="UUID" type="guid" value="21ae9935-4e17-4f07-a188-676527665c20"/>
         </node>
         <node id="Background">
-          <attribute id="Description" type="TranslatedString" handle="h211c7b5fgf041g4e5eg90b5ge7bd39d1a2a8" version="6"/>
-          <attribute id="DisplayName" type="TranslatedString" handle="h8f9ca080g6b83g44c9gb560ga9a57a186c11" version="1"/>
+          <attribute id="Description" type="TranslatedString" handle="hff032e62ge54bg4574gb860ge60f9885e319" version="6"/>
+          <attribute id="DisplayName" type="TranslatedString" handle="h5eca1efdg2962g4e4fga2f1g8ddbdcc0bdac" version="1"/>
           <attribute id="Passives" type="LSString" value="AGTT_BS_Thief"/>
           <attribute id="UUID" type="guid" value="b10fb508-d9f1-4ce2-b89e-e5bc70e3cdfd"/>
         </node>
@@ -41,10 +41,40 @@
           <attribute id="UUID" type="guid" value="ef0eabe1-b8fd-4b16-bc0c-931c74cb77f4"/>
         </node>
         <node id="Background">
-          <attribute id="Description" type="TranslatedString" handle="h535f1564g022ag4aedgba1eg0ea3b95f11e1" version="6"/>
+          <attribute id="Description" type="TranslatedString" handle="he2abacb3gaefeg429agba51gc5960d48e096" version="6"/>
           <attribute id="DisplayName" type="TranslatedString" handle="h78795127g018bg4dfag80c6g27bd2aec6f90" version="1"/>
           <attribute id="Passives" type="LSString" value="AGTT_BS_Apprentice"/>
           <attribute id="UUID" type="guid" value="ecb6ee29-5805-474b-9eb7-1d5ee7b89eba"/>
+        </node>
+        <node id="Background">
+          <attribute id="Description" type="TranslatedString" handle="h76ebfe12g7c8cg4759g9f1fge267c2751b4d" version="6"/>
+          <attribute id="DisplayName" type="TranslatedString" handle="hd2840886g296cg4cddg8714g799015b18ef1" version="1"/>
+          <attribute id="Passives" type="LSString" value="AGTT_BS_TheLover"/>
+          <attribute id="UUID" type="guid" value="37723cca-db83-439e-9bf2-125980ef3498"/>
+        </node>
+        <node id="Background">
+          <attribute id="Description" type="TranslatedString" handle="hd20017c6gf7a5g4ff4ga80ega91debb9cb44" version="6"/>
+          <attribute id="DisplayName" type="TranslatedString" handle="h3b87f330g49e9g48ffgb735g4ecc81ab7474" version="1"/>
+          <attribute id="Passives" type="LSString" value="AGTT_BS_TheRitual"/>
+          <attribute id="UUID" type="guid" value="1a2ec513-f718-46a1-97be-893d8165074c"/>
+        </node>
+        <node id="Background">
+          <attribute id="Description" type="TranslatedString" handle="h376e999eg0cb9g490egb71bge2e903bc17b8" version="6"/>
+          <attribute id="DisplayName" type="TranslatedString" handle="h416aa5ccg594cg4a06g89d7g8985400ab5e1" version="1"/>
+          <attribute id="Passives" type="LSString" value="AGTT_BS_Shadow"/>
+          <attribute id="UUID" type="guid" value="f0c8d1c1-352e-4445-9e31-1609805e1f61"/>
+        </node>
+        <node id="Background">
+          <attribute id="Description" type="TranslatedString" handle="h248b896dgea38g425dgb656g8d6b2dbf0abe" version="6"/>
+          <attribute id="DisplayName" type="TranslatedString" handle="h9680d280g7d9bg4b9ag9a2dg1b0576fd6464" version="1"/>
+          <attribute id="Passives" type="LSString" value="AGTT_BS_TheTower"/>
+          <attribute id="UUID" type="guid" value="a112a157-ec08-4f7c-9fc3-2bffe208860a"/>
+        </node>
+        <node id="Background">
+          <attribute id="Description" type="TranslatedString" handle="h94bb289fg1f62g40c5gbd1egb76a9e73b7af" version="6"/>
+          <attribute id="DisplayName" type="TranslatedString" handle="h3893bd4bg39e7g410egb2b2g32f1e87d0098" version="1"/>
+          <attribute id="Passives" type="LSString" value="AGTT_BS_Serpent;AGTT_BS_EverRoam_Passive"/>
+          <attribute id="UUID" type="guid" value="01c7e1e2-689a-4aed-8077-cda494a79337"/>
         </node>
       </children>
     </node>

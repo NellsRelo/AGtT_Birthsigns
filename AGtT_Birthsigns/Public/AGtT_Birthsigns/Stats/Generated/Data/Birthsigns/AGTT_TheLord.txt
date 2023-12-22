@@ -4,7 +4,6 @@ type "PassiveData"
 data "Boosts" "Resistance(Fire, Vulnerable);UnlockSpell(AGTT_BS_BloodOfTheNorth)"
 data "DisplayName" "h22044802gbf33g40c8g8452g5196864d4da4"
 data "Description" "h3fd84b0bg5e86g4197ga28cgbbace8efdcc2"
-data "ExtraDescription" "h535f1564g022ag4aedgba1eg0ea3b95f11e1"
 
 new entry "AGTT_BS_BloodOfTheNorth"
 type "SpellData"
