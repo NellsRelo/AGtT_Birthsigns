@@ -12,9 +12,9 @@
   <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="1">Fay</content>
   <content contentuid="h6fa8d5bdg0ac7g498eg8ef1gf82584961700" version="1">Those born under the sign of the Mage have the power to restore &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slots&lt;/LSTag&gt;.</content>
   <content contentuid="hc62a3b00g5b04g4355gaaefgc4a0dfab32b8" version="1">Those born under the sign of the Mage have the power to restore a Level [1] &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.</content>
-  <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="2">Fay (Level 1)</content>
-  <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="3">Fay (Level 2)</content>
-  <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="4">Fay (Level 3)</content>
+  <content contentuid="h326ed7c5g7345g4081g8fe5ge8a80cafa651" version="1">Fay (Level 1)</content>
+  <content contentuid="h0afcb26cgb8e9g411agb2d6g8ce18e208330" version="1">Fay (Level 2)</content>
+  <content contentuid="h5eb2a409g7f33g4610g9eecgb3c2a8fa74c6" version="1">Fay (Level 3)</content>
   <content contentuid="h5eca1efdg2962g4e4fga2f1g8ddbdcc0bdac" version="1">The Thief</content>
   <content contentuid="hff032e62ge54bg4574gb860ge60f9885e319" version="1">The Thief is the last Guardian Constellation, and her Season is the darkest month of Evening Star. Her charges are the Lover, the Shadow, and the Tower. Those born under the sign of the Thief are not typically thieves, though they take risks more often and only rarely come to harm. They will run out of luck eventually, however, and rarely live as long as those born under other signs.
 
@@ -34,12 +34,12 @@
   <content contentuid="ha838b04bgf300g4d3dg8946g3d1297207c59" version="1">Charioteer</content>
   <content contentuid="h507fb25cga501g4adbg92dcgb565e5d7a7b0" version="1">Those born under the sign of the Steed gain an additional [1] &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt;, and are Immune to &lt;LSTag Type="Status" Tooltip="HASTE_LETHARGY"&gt;Lethargy&lt;/LSTag&gt; .</content>
   <content contentuid="h22044802gbf33g40c8g8452g5196864d4da4" version="1">Trollkin</content>
-  <content contentuid="h3fd84b0bg5e86g4197ga28cgbbace8efdcc2" version="1">Those born under the sign of the Lord are &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerable&lt;/LSTag&gt; to Fire. They also gain the power &lt;LSTag Type="Spell" Tooltip="AGTT_BS_BloodOfTheNorth"&gt;Blood of the North&lt;/LSTag&gt;, which allows them to regenerate health.</content>
+  <content contentuid="h3fd84b0bg5e86g4197ga28cgbbace8efdcc2" version="1">Those born under the sign of the Lord are &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerable&lt;/LSTag&gt; to Fire.</content>
   <content contentuid="h3cdcb660g35c7g40e8gbaf4gd9669fb88d1f" version="1">The Lord</content>
   <content contentuid="h535f1564g022ag4aedgba1eg0ea3b95f11e1" version="1">The Lord's Season is First Seed, and he oversees all of Tamriel during the planting. Those born under the sign of the Lord are stronger and healthier than those born under other signs.
     
     Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_Lord"&gt;Troll-kin&lt;/LSTag&gt;
-    Powers: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_BloodOfTheNorth"&gt;Blood of the North&lt;/LSTag&gt;</content>
+    Powers: &lt;LSTag Type="Spell" Tooltip="AGTT_BS_BloodOfTheNorth"&gt;Blood of the North&lt;/LSTag&gt;</content>
   <content contentuid="h3be9c98fgfa5dg46e8g850eg5b08863dc43c" version="1">Elfborn</content>
   <content contentuid="hec643d18gfb68g49ccg8fffgd9a18622faa9" version="1">You are &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerable&lt;/LSTag&gt; to Magical attacks. You also gain an additional 1st Level &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;, and receive the spell Thunderwave.</content>
   <content contentuid="h78795127g018bg4dfag80c6g27bd2aec6f90" version="1">The Apprentice</content>
