@@ -45,7 +45,7 @@
   <content contentuid="hea6221fcg24c8g4546g8fc4g406869ee4415" version="1">Mara's Gift</content>
   <content contentuid="h4d852aadgf981g4f2fgbf77g67d4cf7bb599" version="1">Once per short or long rest, you may restore an amount of &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt; equal to [1].</content>
   <content contentuid="h2a1773b9g0df2g4b5ag8527gb2be622ac4ce" version="1">Blessed Word</content>
-  <content contentuid="h18cc697bga294g4c89ga6f4gb40cfff89f48" version="1">All &lt;LSTag Type="Passive" Tooltip="Undead"&gt;undead&lt;/LSTag&gt; within a 10 foot sphere within range are frightened.</content>
+  <content contentuid="h18cc697bga294g4c89ga6f4gb40cfff89f48" version="1">All &lt;LSTag Type="Passive" Tooltip="Undead"&gt;undead&lt;/LSTag&gt; within a [1] sphere within range are &lt;LSTag Type="Status" Tooltip="TURNED"&gt;Turned&lt;/LSTag&gt;.</content>
   <content contentuid="h5feb5228g5490g47d5g9de2gbf60bf7a8889" version="1">Lover's Embrace</content>
   <content contentuid="h6572523bg0c66g4c18gabdbg5eb53389707c" version="1">You reach out to embrace a creature. The target must make a Willpower &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; against your &lt;LSTag Tooltip="DifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt;.</content>
   <content contentuid="h0a32555egc354g467cg807fgf55fc038ffe2" version="1">Moonshadow</content>

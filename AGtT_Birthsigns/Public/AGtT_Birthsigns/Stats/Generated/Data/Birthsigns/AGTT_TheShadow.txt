@@ -1,4 +1,4 @@
-//  Proficiency in Stealth, gain Moonshadow
+//  Proficiency in Stealth, gain Moonshadow - Maybe make it so you're invisible when partially obscured instead of a power?
 new entry "AGTT_BS_Shadow"
 type "PassiveData"
 data "DisplayName" "hc486d6a4gc7b4g4a12g817cge126b7f602c7"
