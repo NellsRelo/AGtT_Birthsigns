@@ -42,28 +42,30 @@ end
 
 Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function (levelName, isEditorMode)
   for _, player in pairs(Osi.DB_Players:Get(nil)) do
-    if CLUtils.EntityHasPassive(player, Globals.AtronachPassive) then
-      table.insert(Globals.Characters, player)
+    if CLUtils.EntityHasPassive(player[1], Globals.AtronachPassive) then
+      table.insert(Globals.Characters, { UUID = player, amount = 0 })
     end
   end
-end)
 
--- Add Stunted Slots based on Existing Spell Slots, remove old ones
--- This seems to be undone when loading a save...
-Ext.Entity.Subscribe("ActionResources", function (entity, component, _)
-  if entity.Uuid and CLUtils.IsInTable(Globals.Characters, entity.Uuid.EntityUuid) then
-    CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, true)
-    local resources = entity.ActionResources.Resources
-    local slotTable = Utils.RetrieveSlotData(resources)
+  -- Add Stunted Slots based on Existing Spell Slots, remove old ones
+  -- This seems to be undone when loading a save...
+  Ext.Entity.Subscribe("ActionResources", function (entity, component, _)
+    if entity.Uuid and Utils.RetrieveCharacter(entity.Uuid.EntityUuid) then
+      CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, true)
+      local resources = entity.ActionResources.Resources
+      local slotTable = Utils.RetrieveSlotData(resources)
 
-    for _, slotObj in pairs(slotTable) do
-      CLUtils.ModifyResourceAmount(entity.Uuid.EntityUuid, CLGlobals.ActionResources.CL_StuntedSpellSlot, slotObj
-        .Level,
-        slotObj.Amount)
+      for _, slotObj in pairs(slotTable) do
+        CLUtils.ModifyResourceAmount(
+          entity.Uuid.EntityUuid,
+          CLGlobals.ActionResources.CL_StuntedSpellSlot,
+          slotObj.Level,
+          slotObj.Amount)
+      end
+
+      RemoveUnStuntedSlots(resources)
     end
-
-    RemoveUnStuntedSlots(resources)
-  end
+  end)
 end)
 
 local function OnSessionLoaded()

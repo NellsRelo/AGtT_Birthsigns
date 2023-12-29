@@ -25,3 +25,13 @@ function Utils.RetrieveSlotData(resources)
   return res
 end
 
+function Utils.RetrieveCharacter(id)
+  local found = false
+
+  for _, character in pairs(Globals.Characters) do
+    if character == id then
+      found = true
+    end
+  end
+  return found
+end
