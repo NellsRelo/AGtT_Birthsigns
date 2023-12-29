@@ -5,7 +5,12 @@
 // Cannot regain Spell Slots above Level 3 through Rest - swap all Spell Slots for Atronach Spell Slots?
 new entry "AGTT_StuntedMagicka"
 type "PassiveData"
+data "DisplayName" "hb33aa540g1a12g4334gbbf9g5e0c0c1b8077"
+data "Description" "hb0abe7c3g1cf9g4340gb694g0c7152057071"
 
 // You have resistance to damage from Magical sources, and gain an Atronach Spell Slot each level.
 new entry "AGTT_Wombburn"
 type "PassiveData"
+data "DisplayName" "h0a0a7e38g7f5dg4593gbf97g64cb718d1870"
+data "Description" "hf8dc7ab2geb1fg4982gb609g5f53e2d49c96"
+data "Boosts" "Resistance(Slashing, ResistantToMagical);Resistance(Piercing, ResistantToMagical);Resistance(Bludgeoning, ResistantToMagical);Resistance(Acid, ResistantToMagical);Resistance(Thunder, ResistantToMagical);Resistance(Necrotic, Vulnerable);Resistance(Fire, ResistantToMagical);Resistance(Lightning, Vulnerable);Resistance(Cold, ResistantToMagical);Resistance(Psychic, Vulnerable);Resistance(Poison, ResistantToMagical);Resistance(Radiant, Vulnerable);Resistance(Force, ResistantToMagical);ActionResource(CL_StuntedSpellSlot,1,1)"

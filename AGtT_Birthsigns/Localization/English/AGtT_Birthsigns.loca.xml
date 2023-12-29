@@ -49,7 +49,7 @@
   <content contentuid="h3b87f330g49e9g48ffgb735g4ecc81ab7474" version="1">The Ritual</content>
   <content contentuid="hd20017c6gf7a5g4ff4ga80ega91debb9cb44" version="1">The Ritual is one of the Mage's Charges and its Season is Morning Star. Those born under this sign have a variety of abilities depending on the aspects of the moons and the Divines.
 
-    Powers: &lt;LSTag Type="Spell" Tooltip="AGTT_BS_MarasGift"&gt;Mara's Gift&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="AGTT_BS_BlessedWord"&gt;Blessed Word&lt;/LSTag&gt;,</content>
+    Powers: &lt;LSTag Type="Spell" Tooltip="AGTT_BS_MarasGift"&gt;Mara's Gift&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="AGTT_BS_BlessedWord"&gt;Blessed Word&lt;/LSTag&gt;</content>
   <content contentuid="h8a8922acge06cg4702gbcffgfff472010938" version="1">You receive the powers of &lt;LSTag Type="Spell" Tooltip="AGTT_BS_MarasGift"&gt;Mara's Gift&lt;/LSTag&gt; and &lt;LSTag Type="Spell" Tooltip="AGTT_BS_BlessedWord"&gt;Blessed Word&lt;/LSTag&gt;.</content>
   <content contentuid="hd2840886g296cg4cddg8714g799015b18ef1" version="1">The Lover</content>
   <content contentuid="h76ebfe12g7c8cg4759g9f1fge267c2751b4d" version="1">The Lover is one of the Thief's Charges and her Season is Sun's Dawn. Those born under the sign of the Lover are graceful and passionate.
@@ -92,7 +92,7 @@
     <content contentuid="h19a1234fg4650g4ad1gb56fgeb5b79d98f43" version="1">Ever-Roaming</content>
     <content contentuid="h00fa8471gcb71g4bdcg81e1g5d99b94e1398" version="1">Gain an additional Bonus Action.</content>
   <content contentuid="hb1151358gf7adg4b09gadfbg6b4aba6468bd" version="1">Star-Curse</content>
-  <content contentuid="hc378f8c6gbb8eg4289ga863g8aaf9ef1c963" version="1">Once per long rest, you can inflict &lt;LSTag Type="Status" Tooltip="POISONED"&gt;Poisoned&lt;/LSTag&gt; on a creature that you touch, causing them to take [1] per turn for the duration of the power.</content>
+  <content contentuid="hc378f8c6gbb8eg4289ga863g8aaf9ef1c963" version="1">Once per long rest, you can inflict &lt;LSTag Type="Status" Tooltip="POISONED"&gt;Poisoned&lt;/LSTag&gt; on a creature that you touch, causing them to take [1], then [2] per turn for the duration of the power.</content>
   <content contentuid="h0aebf60cg4f9eg4fedgb4e5g6d9f648e7c05" version="1">In addition, you take [1] at the beginning of each turn for the duration of the power.</content>
   <content contentuid="hd6d2a89dgcd2eg4e8fg9d7eg1732ae139a7f" version="1">Star-Cursed</content>
   <content contentuid="hb200e35dg898eg45cdga7a5g4696a3cecd82" version="1">You've been &lt;LSTag Type="Status" Tooltip="AGTT_STATUS_STARCURSE"&gt;cursed&lt;/LSTag&gt; by one born under the sign of the Serpent. At the end of each turn, you take [1].</content>
@@ -100,7 +100,7 @@
   <content contentuid="he3a1e8d2gb7b6g408ag8ec9gcf82ab5202db" version="1">The Atronach</content>
   <content contentuid="h776c5e72g00dcg4346g8f1fgea07f83d9b16" version="1">The Atronach's Season is Sun's Dusk. Those born under this sign are natural Sorcerers with deep reserves of Magicka, but they cannot generate Magicka of their own.
 
-    Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_EverRoam_Passive"&gt;Stunted Magicka&lt;/LSTag&gt;,  &lt;LSTag Type="Passive" Tooltip="AGTT_BS_EverRoam_Passive"&gt;Wombburn&lt;/LSTag&gt;
+    Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_StuntedMagicka"&gt;Stunted Magicka&lt;/LSTag&gt;, &lt;LSTag Type="Passive" Tooltip="AGTT_Wombburn"&gt;Wombburn&lt;/LSTag&gt;
   </content>
   <content contentuid="hb33aa540g1a12g4334gbbf9g5e0c0c1b8077" version="1">Stunted Magicka</content>
   <content contentuid="hb0abe7c3g1cf9g4340gb694g0c7152057071" version="1">You cannot recover Spell Slots via Short or Long Rests. To recover these, you must be the target of a hostile Spell. You will gain a Spell Slot of equal Spell Level to what was cast on you.</content>
