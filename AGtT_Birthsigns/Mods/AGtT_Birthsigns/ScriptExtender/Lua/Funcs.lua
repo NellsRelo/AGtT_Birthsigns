@@ -1,11 +1,21 @@
 Ext.Require("InitGlobals.lua")
 
+local function LoadSpellSlotsGroup()
+  CLUtils.Info("Entering LoadSpellSlotsGroup", true)
+  for _, resource in pairs(Ext.StaticData.Get(CLGlobals.ActionResourceGroups.SpellSlotsGroup, "ActionResourceGroup").ActionResourceDefinitions) do
+    if resource ~= CLGlobals.ActionResources.CL_StuntedSpellSlot then
+      CLUtils.AddToTable(Globals.ValidSlots, resource)
+    end
+  end
+end
+
 local function ModifyStuntedSlotsBySpell(entity, spell, amount)
+  CLUtils.Info("Entering ModifyStuntedSlotsBySpell", true)
   local spellData = Ext.Stats.Get(spell)
   local level = spellData.Level or 1
 
   if spellData.SpellFlags then
-    Utils.ModifySlotAmount(entity, "CL_StuntedSpellSlot", amount, level)
+    CLUtils.ModifyResourceAmount(entity, "CL_StuntedSpellSlot", amount, level)
   end
 end
 
@@ -24,21 +34,40 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function (_, targe
 end)
 
 local function RemoveUnStuntedSlots(resources)
+  CLUtils.Info("Entering RemoveUnStuntedSlots", true)
   for _, resourceUUID in pairs(Globals.ValidSlots) do
     resources[resourceUUID] = nil
   end
 end
 
+Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function (levelName, isEditorMode)
+  for _, player in pairs(Osi.DB_Players:Get(nil)) do
+    if CLUtils.EntityHasPassive(player, Globals.AtronachPassive) then
+      table.insert(Globals.Characters, player)
+    end
+  end
+end)
+
 -- Add Stunted Slots based on Existing Spell Slots, remove old ones
-Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
-  if Utils.IsEntityInPlayers(entity) and CLUtils.EntityHasPassive(entity, Globals.AtronachPassive) then
+-- This seems to be undone when loading a save...
+Ext.Entity.Subscribe("ActionResources", function (entity, component, _)
+  if entity.Uuid and CLUtils.IsInTable(Globals.Characters, entity.Uuid.EntityUuid) then
+    CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, true)
     local resources = entity.ActionResources.Resources
     local slotTable = Utils.RetrieveSlotData(resources)
 
     for _, slotObj in pairs(slotTable) do
-      Utils.ModifySlotAmount(entity, "CL_StuntedSpellSlot", slotObj.Level, slotObj.Amount)
+      CLUtils.ModifyResourceAmount(entity.Uuid.EntityUuid, CLGlobals.ActionResources.CL_StuntedSpellSlot, slotObj
+        .Level,
+        slotObj.Amount)
     end
 
     RemoveUnStuntedSlots(resources)
   end
 end)
+
+local function OnSessionLoaded()
+  LoadSpellSlotsGroup()
+end
+
+Ext.Events.SessionLoaded:Subscribe(OnSessionLoaded)
