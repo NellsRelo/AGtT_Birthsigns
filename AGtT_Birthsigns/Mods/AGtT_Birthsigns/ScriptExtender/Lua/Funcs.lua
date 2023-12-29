@@ -2,9 +2,11 @@ Ext.Require("InitGlobals.lua")
 
 local function ModifyStuntedSlotsBySpell(entity, spell, amount)
   local spellData = Ext.Stats.Get(spell)
-  local level = spellData.level or 1
+  local level = spellData.Level or 1
 
-  Utils.ModifySlotAmount(entity, Globals.StuntedSlotId, amount, level)
+  if spellData.SpellFlags then
+    Utils.ModifySlotAmount(entity, CLGlobals.ActionResources.CL_StuntedSpellSlot, amount, level)
+  end
 end
 
 -- Cast Spell = reduce Max Amount of Stunted Slots
@@ -22,47 +24,9 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function (_, targe
 end)
 
 -- Add Stunted Slots based on Existing Spell Slots, remove old ones
-
-
-
-local function SwapSpellSlots(entity)
-  local currentAmount = 0
-  for name, resourceId in pairs(Globals.ValidSlots) do
-    local resourceTable = CLUtils.GetActionResourceData(entity, resourceId)
-    if resourceTable then
-      currentAmount = currentAmount + resourceTable.Amount
-      resourceTable = nil
-    end
+Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
+  if Utils.IsEntityInPlayers(entity) then
+    local resources = entity.ActionResources.Resources
+    Utils.SpellSlotResourceHandler(resources)
   end
-
-  local fleshedEntity = Ext.Entity.Get(entity)
-  -- This might not work if it doesn't exist... Good thing we're giving Atronachs Stunted Spell Slots anyway!
-  Osi.PartyIncreaseActionResourceValue(entity, "CL_StuntedSpellSlot", currentAmount)
-end
-
-local function OnCharactersChange()
-  Globals.Characters = Osi.DB_Players:Get(nil)
-end
-
-local function onCharacterCreationFinished()
-
-end
-
-local function OnLevelUpFinished()
-
-end
-
----@param object Guid
-local function OnAddedToTeam(object)
-  --Do something when object becomes a party member
-end
-
--- Scenarios where Spell Slots can Change
---[[
-  - Arcane Cultivation Elixir
-  - Equipment
-  - Level-up complete
-  - Character Creation
-  - Rest/Angelic Slumber
-  - ???
-]]
+end)
