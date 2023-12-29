@@ -5,7 +5,7 @@ local function ModifyStuntedSlotsBySpell(entity, spell, amount)
   local level = spellData.Level or 1
 
   if spellData.SpellFlags then
-    Utils.ModifySlotAmount(entity, CLGlobals.ActionResources.CL_StuntedSpellSlot, amount, level)
+    Utils.ModifySlotAmount(entity, "CL_StuntedSpellSlot", amount, level)
   end
 end
 
