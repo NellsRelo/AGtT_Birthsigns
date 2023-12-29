@@ -3,7 +3,7 @@ Utils = {}
 function Utils.LoadSpellSlotsGroup()
   for _, resource in pairs(Ext.StaticData.Get(CLGlobals.ActionResourceGroups.SpellSlotsGroup, "ActionResourceGroup").ActionResourceDefinitions) do
     if resource ~= CLGlobals.ActionResources.CL_StuntedSpellSlot then
-      table.insert(Globals.ValidSlots, resource)
+      CLUtils.AddToTable(Globals.ValidSlots, resource)
     end
   end
 end
@@ -48,34 +48,16 @@ function Utils.IsEntityInPlayers(entityId)
   return found
 end
 
-function Utils.SpellSlotResourceHandler(resources)
+function Utils.RetrieveSlotData(resources)
+  local res = {}
   for _, resourceUUID in pairs(Globals.ValidSlots) do
     if resources[resourceUUID] then
       for _, resourceObj in pairs(resources[resourceUUID]) do
-        Utils.SpellSlotResourceLevelHandler(resourceObj, resources)
+        table.insert(res, { Amount = resourceObj.Amount, Level = resourceObj.ResourceId })
       end
     end
   end
+
+  return res
 end
 
-function Utils.SpellSlotResourceLevelHandler(resourceObj, resourceArr)
-  local stuntedSlotTable = {}
-  if resourceArr[CLGlobals.ActionResources.CL_StuntedSpellSlot] ~= nil then
-    stuntedSlotTable = resourceArr[CLGlobals.ActionResources.CL_StuntedSpellSlot]
-  end
-  -- If Stunted Spell Slot exists at given ResourceId (level)
-    -- Increment existing Spell Slot by Current Amount
-  -- Else
-    -- Copy Non-Stunted Spell Slot entry into Stunted Spell Slots, change ResourceUUID
-  -- Non-Stunted Spell Slot entry = nil
-end
-
-function Utils.CopyResourceTo(fromResource, toResourceId, resources, isDestructive)
-  local res = resources[toResourceId] or {}
-  table.insert(res, fromResource)
-
-  resources[toResourceId] = res
-  if isDestructive then
-    fromResource = nil
-  end
-end
