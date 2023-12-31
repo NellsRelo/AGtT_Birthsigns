@@ -1,23 +1,16 @@
 Utils = {}
 
-function Utils.ModifySlotConditions(char, spell)
-  CLUtils.Info("Entering ModifySlotConditions", true)
-  local res = false
-
-  if CLUtils.EntityHasPassive(char, Globals.AtronachPassive) and CLUtils.HasSpellFlag(spell, { "IsSpell", "IsCantrip" }) and CLUtils.HasSpellFlag(spell, { "IsHarmful" }) then
-    res = true
-  end
-
-  return res
-end
-
 function Utils.RetrieveSlotData(resources)
-  CLUtils.Info("Entering RetrieveSlotData", true)
+  CLUtils.Info("Entering RetrieveSlotData", Globals.InfoOverride)
   local res = {}
   for _, resourceUUID in pairs(Globals.ValidSlots) do
     if resources[resourceUUID] then
       for _, resourceObj in pairs(resources[resourceUUID]) do
-        CLUtils.AddToTable(res, { Amount = resourceObj.Amount, Level = resourceObj.ResourceId })
+        CLUtils.AddToTable(res, {
+          Amount = resourceObj.Amount,
+          Level = resourceObj.ResourceId,
+          UUID = resourceUUID
+        })
       end
     end
   end
@@ -27,9 +20,21 @@ end
 
 -- In case the action resource doesn't exist to be altered
 function Utils.PrepareStuntedResource(entity, level)
+  CLUtils.Info("Entering PrepareStuntedResource", Globals.InfoOverride)
   local res = 0
-  if not CLUtils.GetActionResourceData(entity, CLGlobals.ActionResources.CL_StuntedSpellSlot) then
-    CLUtils.ModifyResourceAmount(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", level, 1)
+  local found = false
+  local resourceData = CLUtils.GetActionResourceData(entity, CLGlobals.ActionResources.CL_StuntedSpellSlot)
+
+  if resourceData then
+    for _, resourceObj in pairs(resourceData) do
+      if resourceObj.ResourceId == level then
+        found = true
+      end
+    end
+  end
+
+  if not found then
+    CLUtils.ModifyResourceAmount(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", 1, level)
     res = 1
   end
 
@@ -37,10 +42,15 @@ function Utils.PrepareStuntedResource(entity, level)
 end
 
 function Utils.GetStuntedSlotAmountAtLevel(entity, level)
+  CLUtils.Info("Entering GetStuntedSlotAmountAtLevel", Globals.InfoOverride)
+  _D(level)
+  _D(entity)
   local stuntedSlots = entity.ActionResources.Resources[CLGlobals.ActionResources.CL_StuntedSpellSlot]
-  local res
+  _D(stuntedSlots)
+  local res = 0
   for _, resourceObj in pairs(stuntedSlots) do
     if resourceObj.ResourceId == level then
+      _D("ResourceID matches Level")
       res = resourceObj.Amount
     end
   end
@@ -49,11 +59,32 @@ function Utils.GetStuntedSlotAmountAtLevel(entity, level)
 end
 
 function Utils.LoadSpellSlotsGroup()
-  CLUtils.Info("Entering LoadSpellSlotsGroup", true)
+  CLUtils.Info("Entering LoadSpellSlotsGroup", Globals.InfoOverride)
   Globals.ValidSlots = {}
   for _, resource in pairs(Ext.StaticData.Get(CLGlobals.ActionResourceGroups.SpellSlotsGroup, "ActionResourceGroup").ActionResourceDefinitions) do
     if resource ~= CLGlobals.ActionResources.CL_StuntedSpellSlot then
       CLUtils.AddToTable(Globals.ValidSlots, resource)
     end
+  end
+end
+
+function Utils.RemoveSlotAtLevel(entity, slotObj)
+  CLUtils.Info("Entering RemoveSlotAtLevel", Globals.InfoOverride)
+  for key, resourceObj in pairs(entity.ActionResources.Resources[slotObj.UUID]) do
+    if resourceObj.ResourceId == slotObj.Level then
+      entity.ActionResources.Resources[slotObj.UUID][key] = nil
+    end
+  end
+end
+
+function Utils.AddSlotAtLevel(entity, resource, level)
+  CLUtils.Info("Entering AddSlotAtLevel", Globals.InfoOverride)
+  local isPrepared = Utils.PrepareStuntedResource(entity, level)
+end
+
+local function RemoveUnStuntedSlots(resources)
+  CLUtils.Info("Entering RemoveUnStuntedSlots", Globals.InfoOverride)
+  for _, resourceUUID in pairs(Globals.ValidSlots) do
+    resources[resourceUUID] = nil
   end
 end

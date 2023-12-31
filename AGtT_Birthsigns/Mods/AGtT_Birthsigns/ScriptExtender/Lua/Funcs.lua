@@ -1,56 +1,51 @@
 Ext.Require("InitGlobals.lua")
 
 local function ModifyStuntedSlotsBySpell(entity, spell, amount)
-  CLUtils.Info("Entering ModifyStuntedSlotsBySpell", true)
+  CLUtils.Info("Entering ModifyStuntedSlotsBySpell", Globals.InfoOverride)
   local spellData = Ext.Stats.Get(spell)
   local level = spellData.Level or 1
 
   if spellData.SpellFlags then
-    CLUtils.ModifyEntityResourceValue(entity, CLGlobals.ActionResources.CL_StuntedSpellSlot,
-      { Amount = amount, MaxAmount = amount }, level)
+    CLUtils.ModifyEntityResourceValue(
+      entity,
+      CLGlobals.ActionResources.CL_StuntedSpellSlot,
+      { Amount = amount, MaxAmount = amount },
+      level)
   end
 end
 
 -- Damaged by Spell = increase Stunted Slots at Spell Level X
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function (_, target, spell, _, _, _)
-  if Utils.ModifySlotConditions(target, spell) then
+  if Conditions.ModifySlotConditions(target, spell) then
     ModifyStuntedSlotsBySpell(target, spell, 1)
   end
 end)
 
 -- TODO: Listener for Level-Up to apply new Atronach Spell Slot at valid levels
 
-local function RemoveUnStuntedSlots(resources)
-  CLUtils.Info("Entering RemoveUnStuntedSlots", true)
-  for _, resourceUUID in pairs(Globals.ValidSlots) do
-    resources[resourceUUID] = nil
-  end
-end
 
 -- Add Stunted Slots based on Existing Spell Slots, remove old ones
--- This seems to be undone when loading a save...
 Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
-  if entity.Uuid and Osi.IsPlayer(entity.Uuid.EntityUuid) and CLUtils.EntityHasPassive(entity, Globals.AtronachPassive) then
-    CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, true)
-    local resources = entity.ActionResources.Resources
-    local slotTable = Utils.RetrieveSlotData(resources)
+  if Conditions.OnActionResourceChangeConditions(entity) then
+    CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, Globals.InfoOverride)
+    local slotTable = Utils.RetrieveSlotData(entity.ActionResources.Resources)
 
     for _, slotObj in pairs(slotTable) do
       local isPrepared = Utils.PrepareStuntedResource(entity, slotObj.Level)
-      local currentAmount = Utils.GetStuntedSlotAmountAtLevel(entity, slotObj.Level) or 0
+      local currentAmount = Utils.GetStuntedSlotAmountAtLevel(entity, slotObj.Level)
       local newAmount = currentAmount + slotObj.Amount - isPrepared
 
-      CLUtils.ModifyEntityResourceValue(
+      CLUtils.SetEntityResourceValue(
         entity,
         CLGlobals.ActionResources.CL_StuntedSpellSlot,
         { Amount = newAmount, MaxAmount = newAmount },
         slotObj.Level)
+
+      Utils.RemoveSlotAtLevel(entity, slotObj)
     end
 
-    RemoveUnStuntedSlots(resources)
     entity:Replicate("ActionResources")
   end
-
 end)
 
 local function OnSessionLoaded()
