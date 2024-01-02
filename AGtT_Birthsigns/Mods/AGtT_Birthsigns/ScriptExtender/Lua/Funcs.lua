@@ -29,21 +29,12 @@ Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
   if Conditions.OnActionResourceChangeConditions(entity) then
     CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, Globals.InfoOverride)
     local slotTable = Utils.RetrieveSlotData(entity.ActionResources.Resources)
-
+    _D(slotTable)
     for _, slotObj in pairs(slotTable) do
-      local isPrepared = Utils.PrepareStuntedResource(entity, slotObj.Level)
-      local currentAmount = Utils.GetStuntedSlotAmountAtLevel(entity, slotObj.Level)
-      local newAmount = currentAmount + slotObj.Amount - isPrepared
-
-      CLUtils.SetEntityResourceValue(
-        entity,
-        CLGlobals.ActionResources.CL_StuntedSpellSlot,
-        { Amount = newAmount, MaxAmount = newAmount },
-        slotObj.Level)
-
-      Utils.RemoveSlotAtLevel(entity, slotObj)
+      Utils.ModifyStuntedSlotsByResource(entity, slotObj)
+      -- Utils.SetResources(entity, slotObj)
+      -- Utils.RemoveSlotAtLevel(entity, slotObj)
     end
-
     entity:Replicate("ActionResources")
   end
 end)
