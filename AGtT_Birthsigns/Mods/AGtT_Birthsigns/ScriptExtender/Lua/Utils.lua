@@ -49,6 +49,10 @@ function Utils.PrepareStuntedResource(entity, level)
   return res
 end
 
+--- Retrieve the amount of Stunted Spell Slots at a given level
+--- @param entity userdata
+--- @param level number
+---@return number?
 function Utils.GetStuntedSlotAmountAtLevel(entity, level)
   CLUtils.Info("Entering GetStuntedSlotAmountAtLevel", Globals.InfoOverride)
   local stuntedSlots = entity.ActionResources.Resources[CLGlobals.ActionResources.CL_StuntedSpellSlot]
@@ -62,6 +66,7 @@ function Utils.GetStuntedSlotAmountAtLevel(entity, level)
   return res
 end
 
+--- Retrieve all Action Resources within the SpellSlots Action Resource Group, and add them to the ValidSlots Global Table
 function Utils.LoadSpellSlotsGroup()
   CLUtils.Info("Entering LoadSpellSlotsGroup")
   Globals.ValidSlots = {}
@@ -117,6 +122,10 @@ function Utils.TransferSlotsToStunted(entity, baseResource)
   )
 end
 
+--- Modify Stunted Slots when hit with a Spell
+--- @param entity userdata
+--- @param spell string
+--- @param amount number
 function Utils.ModifyStuntedSlotsBySpell(entity, spell, amount)
   CLUtils.Info("Entering ModifyStuntedSlotsBySpell", Globals.InfoOverride)
   local spellData = Ext.Stats.Get(spell)
@@ -139,7 +148,10 @@ function Utils.ModifyStuntedSlotsBySpell(entity, spell, amount)
   )
 end
 
-function Utils.ModifySlotValuesOnSession(entity, resources)
+--- Set Action Resources based on ModVars when loading a session 
+--- @param entity userdata
+--- @param resources table
+function Utils.SyncSlotValuesOnSession(entity, resources)
   for resourceName, resourcesAtLevel in pairs(resources) do
     for resourceLevel, resourceAmount in pairs(resourcesAtLevel) do
       CLUtils.SetEntityResourceValue(
@@ -152,6 +164,8 @@ function Utils.ModifySlotValuesOnSession(entity, resources)
   end
 end
 
+--- Retrieve ModVars
+---@return table characterResourceTable
 function Utils.GetModVars()
   local characterResourceTable = {}
   local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
@@ -163,17 +177,25 @@ function Utils.GetModVars()
   return characterResourceTable
 end
 
+--- Set ModVars based on Global CharacterResources table
 function Utils.SyncModVars()
   local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
   vars.AGTTBS_CharacterResources = Globals.CharacterResources
 end
 
+--- Register an Entity with the Global CharacterResources table
+--- @param entityId string UUID of entity
 function Utils.RegisterEntity(entityId)
   if not Globals.CharacterResources[entityId] then
     Globals.CharacterResources[entityId] = {}
   end
 end
 
+--- Register Action Resources to an Entity in the Global Character Resources table 
+--- @param entityId string UUID of entity
+--- @param slotName string Name of Action Resource
+--- @param slotLevel number Level of Action Resource
+--- @param slotAmount number Current Amount of Action Resource
 function Utils.RegisterSlot(entityId, slotName, slotLevel, slotAmount)
   Utils.RegisterEntity(entityId)
 

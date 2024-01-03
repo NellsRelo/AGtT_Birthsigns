@@ -34,7 +34,7 @@ local function OnSessionLoaded()
   for entityId, resources in pairs(vars.AGTTBS_CharacterResources) do
     local entity = Ext.Entity.Get(entityId)
 
-    Utils.ModifySlotValuesOnSession(entity, resources)
+    Utils.SyncSlotValuesOnSession(entity, resources)
   end
 end
 
