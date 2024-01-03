@@ -55,7 +55,7 @@ function Utils.GetStuntedSlotAmountAtLevel(entity, level)
   local res = 0
   for _, resourceObj in pairs(stuntedSlots) do
     if resourceObj.ResourceId == level then
-      res = CLUtils.ToInteger(resourceObj.Amount)
+      res = tonumber(resourceObj.Amount)
     end
   end
 
@@ -136,8 +136,8 @@ function Utils.TransferSlotsToStunted(entity, baseResource)
   Utils.RegisterSlot(
     entity.Uuid.EntityUuid,
     "CL_StuntedSpellSlot",
-    level,
-    Utils.GetStuntedSlotAmountAtLevel(entity, level)
+    baseResource.Level,
+    Utils.GetStuntedSlotAmountAtLevel(entity, baseResource.Level)
   )
 
   -- Remove Base Slots
@@ -174,27 +174,56 @@ function Utils.ModifyStuntedSlotsBySpell(entity, spell, amount)
     entity.Uuid.EntityUuid,
     "CL_StuntedSpellSlot",
     level,
-    Utils.GetStuntedSlotAmountAtLevel(entity, level)
+    Utils.GetStuntedSlotAmountAtLevel(entity, level) or 0
   )
 end
 
-function Utils.GetModVars()
-  local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
-  if not vars.CharacterResources then
-    vars.CharacterResources = {}
+function Utils.ModifySlotValuesOnSession(entity, resources)
+  for resourceName, resourcesAtLevel in pairs(resources) do
+    for resourceLevel, resourceAmount in pairs(resourcesAtLevel) do
+      CLUtils.SetEntityResourceValue(
+        entity,
+        CLGlobals.ActionResources[resourceName],
+        { Amount = resourceAmount, MaxAmount = resourceAmount },
+        resourceLevel
+      )
+    end
   end
 end
 
+function Utils.GetModVars()
+  local characterResourceTable = {}
+  local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
+  if not vars.AGTTBS_CharacterResources then
+    vars.AGTTBS_CharacterResources = {}
+    Ext.Vars.SyncModVariables(AGTTBS.UUID)
+  end
+  characterResourceTable = vars
+  return characterResourceTable
+end
+
+function Utils.SyncModVars()
+  local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
+  vars.AGTTBS_CharacterResources = Globals.CharacterResources
+end
+
 function Utils.RegisterEntity(entityId)
-  local vars = Utils.GetModVars()
-  if not vars.CharacterResources[entityId] then
-    vars.CharacterResources[entityId] = {}
+  if not Globals.CharacterResources[entityId] then
+    Globals.CharacterResources[entityId] = {}
   end
 end
 
 function Utils.RegisterSlot(entityId, slotName, slotLevel, slotAmount)
   Utils.RegisterEntity(entityId)
 
-  local vars = Utils.GetModVars()
-  vars.CharacterResources[entityId][slotName][slotLevel] = slotAmount
+  if not Globals.CharacterResources[entityId][slotName] then
+    Globals.CharacterResources[entityId][slotName] = {}
+  end
+
+  if not Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] then
+    Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = 0
+  end
+  Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = slotAmount or 0
+
+  Utils.SyncModVars()
 end

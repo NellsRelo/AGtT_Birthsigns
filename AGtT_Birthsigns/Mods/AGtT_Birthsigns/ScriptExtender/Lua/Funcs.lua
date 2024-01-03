@@ -12,8 +12,8 @@ end)
 -- Add Stunted Slots based on Existing Spell Slots, remove old ones
 Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
   local vars = Utils.GetModVars()
-  _D(vars)
   if Conditions.OnActionResourceChangeConditions(entity) then
+    _D(vars)
     Utils.RegisterEntity(entity.Uuid.EntityUuid)
     CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, Globals.InfoOverride)
     local slotTable = Utils.RetrieveSlotData(entity.ActionResources.Resources)
@@ -23,12 +23,19 @@ Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
         Utils.TransferSlotsToStunted(entity, slotObj)
       end
     end
+    _D(vars)
   end
-  _D(vars)
 end)
 
 local function OnSessionLoaded()
   Utils.LoadSpellSlotsGroup()
+
+  local vars = Utils.GetModVars()
+  for entityId, resources in pairs(vars.AGTTBS_CharacterResources) do
+    local entity = Ext.Entity.Get(entityId)
+
+    Utils.ModifySlotValuesOnSession(entity, resources)
+  end
 end
 
 Ext.Events.SessionLoaded:Subscribe(OnSessionLoaded)

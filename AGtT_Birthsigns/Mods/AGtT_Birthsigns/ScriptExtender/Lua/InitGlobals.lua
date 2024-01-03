@@ -5,6 +5,10 @@ AGTTBS.modPrefix = "AGTTBS"
 AGTTBS.modVersion = Ext.Mod.GetMod(AGTTBS.UUID).Info.ModVersion
 Mods.AGTTBS = Mods.AGtT_Birthsigns
 
+Ext.Vars.RegisterModVariable(AGTTBS.UUID, "AGTTBS_CharacterResources", {
+  Server = true, Client = true, SyncToClient = true, SyncOnWrite = true, Persistent = true
+})
+
 Ext.Require("Globals.lua")
 Ext.Require("Utils.lua")
 
@@ -17,4 +21,3 @@ clImports[5] = "Validators"
 
 CLGlobals, CLStrings, CLDictUtils, CLUtils, CLValidators = Mods.CommunityLibrary.Import(clImports)
 
-Ext.Vars.RegisterModVariable(AGTTBS.UUID, "CharacterResources", {})
