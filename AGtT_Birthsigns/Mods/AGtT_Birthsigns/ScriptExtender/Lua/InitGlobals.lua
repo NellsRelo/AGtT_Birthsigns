@@ -16,3 +16,5 @@ clImports[4] = "Utils"
 clImports[5] = "Validators"
 
 CLGlobals, CLStrings, CLDictUtils, CLUtils, CLValidators = Mods.CommunityLibrary.Import(clImports)
+
+Ext.Vars.RegisterModVariable(AGTTBS.UUID, "CharacterResources", {})

@@ -1,9 +1,9 @@
 Utils = {}
 
-local function ToInteger(number)
-  return math.floor(tonumber(number) or error("Could not cast '" .. tostring(number) .. "' to number.'"))
-end
 
+--- Return table of Resources defined in Globals.ValidSlots as belonging to SpellSlotGroup
+--- @param resources userdata Entity.ActionResources.Resource
+---@return table res table of Resources
 function Utils.RetrieveSlotData(resources)
   CLUtils.Info("Entering RetrieveSlotData")
   local res = {}
@@ -13,7 +13,8 @@ function Utils.RetrieveSlotData(resources)
         CLUtils.AddToTable(res, {
           Amount = resourceObj.Amount,
           Level = resourceObj.ResourceId,
-          UUID = resourceUUID
+          UUID = resourceUUID,
+          Name = CLUtils.GetKeyFromvalue(CLGlobals.ActionResources, resourceUUID)
         })
       end
     end
@@ -22,7 +23,10 @@ function Utils.RetrieveSlotData(resources)
   return res
 end
 
--- In case the action resource doesn't exist to be altered
+--- Returns 1 if the Action Resource needs to be manually created via Boost, 0 if not.
+--- @param entity userdata
+--- @param level number
+---@return integer res 1 if Stunted Spell Slot needs to be manually created, 0 if not.
 function Utils.PrepareStuntedResource(entity, level)
   CLUtils.Info("Entering PrepareStuntedResource")
   local res = 0
@@ -31,7 +35,7 @@ function Utils.PrepareStuntedResource(entity, level)
 
   if resourceData then
     for _, resourceObj in pairs(resourceData) do
-      if ToInteger(resourceObj.ResourceId) == ToInteger(level) then
+      if CLUtils.ToInteger(resourceObj.ResourceId) == CLUtils.ToInteger(level) then
         found = true
       end
     end
@@ -51,7 +55,7 @@ function Utils.GetStuntedSlotAmountAtLevel(entity, level)
   local res = 0
   for _, resourceObj in pairs(stuntedSlots) do
     if resourceObj.ResourceId == level then
-      res = ToInteger(resourceObj.Amount)
+      res = CLUtils.ToInteger(resourceObj.Amount)
     end
   end
 
@@ -80,14 +84,14 @@ end
 
 function Utils.CalcNewStuntedSlotAmount(entity, delta, level)
   CLUtils.Info("Entering CalcNewStuntedSlotAmount", Globals.InfoOverride)
-  local isPrepared = Utils.PrepareStuntedResource(entity, level)
+  local preparationResult = Utils.PrepareStuntedResource(entity, level)
   local currentAmount = Utils.GetStuntedSlotAmountAtLevel(entity, level)
   _P(
-    "isPrepared = " .. isPrepared ..
-    ", delta = " .. tostring(ToInteger(delta)) ..
+    "preparationResult = " .. preparationResult ..
+    ", delta = " .. tostring(CLUtils.ToInteger(delta)) ..
     ", level is " .. level ..
     ", currentAmount is " .. currentAmount)
-  return tonumber(currentAmount) + tonumber(delta) - tonumber(isPrepared)
+  return tonumber(currentAmount) + tonumber(delta) - tonumber(preparationResult)
 end
 
 function Utils.SetResources(entity, baseResource)
@@ -107,10 +111,21 @@ function Utils.SetResources(entity, baseResource)
     baseResource.Level)
 end
 
-function Utils.ModifyStuntedSlotsByResource(entity, baseResource)
+--- Modify amounts from a given resource into Stunted Slots, and set the original Resource amounts to Zero.
+--- @param entity userdata SE Entity object
+--- @param baseResource table Table containing Amount, Level, and UUID
+function Utils.TransferSlotsToStunted(entity, baseResource)
   CLUtils.Info("Entering ModifyStuntedSlotsByResource", Globals.InfoOverride)
-  local isPrepared = Utils.PrepareStuntedResource(entity, baseResource.Level)
-  local delta = baseResource.Level - isPrepared
+  local preparationResult = Utils.PrepareStuntedResource(entity, baseResource.Level)
+  local delta = baseResource.Amount - preparationResult
+  _P(
+    "For level " .. baseResource.Level ..
+    ": OG Resource amount: " .. baseResource.Amount ..
+    ", Amount Prepared: " .. preparationResult ..
+    ", Amount to add: " .. delta
+  )
+
+  -- Modify Stunted Slots
   CLUtils.ModifyEntityResourceValue(
     entity,
     CLGlobals.ActionResources.CL_StuntedSpellSlot,
@@ -118,9 +133,68 @@ function Utils.ModifyStuntedSlotsByResource(entity, baseResource)
     baseResource.Level
   )
 
+  Utils.RegisterSlot(
+    entity.Uuid.EntityUuid,
+    "CL_StuntedSpellSlot",
+    level,
+    Utils.GetStuntedSlotAmountAtLevel(entity, level)
+  )
+
+  -- Remove Base Slots
   CLUtils.SetEntityResourceValue(
     entity,
     baseResource.UUID,
     { Amount = 0, MaxAmount = 0 },
-    baseResource.Level)
+    baseResource.Level
+  )
+
+  Utils.RegisterSlot(
+    entity.Uuid.EntityUuid,
+    baseResource.Name,
+    baseResource.Level,
+    0
+  )
+end
+
+function Utils.ModifyStuntedSlotsBySpell(entity, spell, amount)
+  CLUtils.Info("Entering ModifyStuntedSlotsBySpell", Globals.InfoOverride)
+  local spellData = Ext.Stats.Get(spell)
+  local level = spellData.Level or 1
+
+  if spellData.SpellFlags then
+    CLUtils.ModifyEntityResourceValue(
+      entity,
+      CLGlobals.ActionResources.CL_StuntedSpellSlot,
+      { Amount = amount, MaxAmount = amount },
+      level
+    )
+  end
+
+  Utils.RegisterSlot(
+    entity.Uuid.EntityUuid,
+    "CL_StuntedSpellSlot",
+    level,
+    Utils.GetStuntedSlotAmountAtLevel(entity, level)
+  )
+end
+
+function Utils.GetModVars()
+  local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
+  if not vars.CharacterResources then
+    vars.CharacterResources = {}
+  end
+end
+
+function Utils.RegisterEntity(entityId)
+  local vars = Utils.GetModVars()
+  if not vars.CharacterResources[entityId] then
+    vars.CharacterResources[entityId] = {}
+  end
+end
+
+function Utils.RegisterSlot(entityId, slotName, slotLevel, slotAmount)
+  Utils.RegisterEntity(entityId)
+
+  local vars = Utils.GetModVars()
+  vars.CharacterResources[entityId][slotName][slotLevel] = slotAmount
 end
