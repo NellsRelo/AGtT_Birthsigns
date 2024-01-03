@@ -16,7 +16,7 @@ Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
     _D(vars)
     Utils.RegisterEntity(entity.Uuid.EntityUuid)
     CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, Globals.InfoOverride)
-    local slotTable = Utils.RetrieveSlotData(entity.ActionResources.Resources)
+    local slotTable = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)
     _D(slotTable)
     for _, slotObj in pairs(slotTable) do
       if slotObj.Amount then
@@ -28,7 +28,7 @@ Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
 end)
 
 local function OnSessionLoaded()
-  Utils.LoadSpellSlotsGroup()
+  Globals.ValidSlots = CLUtils.LoadSpellSlotsGroupToArray(Globals.ValidSlots, not Conditions.IsResourceStunted)
 
   local vars = Utils.GetModVars()
   for entityId, resources in pairs(vars.AGTTBS_CharacterResources) do

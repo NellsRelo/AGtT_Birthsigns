@@ -10,7 +10,7 @@ Ext.Vars.RegisterModVariable(AGTTBS.UUID, "AGTTBS_CharacterResources", {
 })
 
 Ext.Require("Globals.lua")
-Ext.Require("Utils.lua")
+Ext.Require("Utils/_init.lua")
 
 local clImports = {}
 clImports[1] = "Globals"

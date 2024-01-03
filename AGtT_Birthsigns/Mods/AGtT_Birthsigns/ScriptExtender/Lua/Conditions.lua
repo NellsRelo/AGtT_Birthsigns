@@ -21,3 +21,9 @@ function Conditions.OnActionResourceChangeConditions(entity)
 
   return res
 end
+
+function Conditions.IsResourceStunted(resource)
+  CLUtils.Info("Entering IsResourceStunted")
+
+  return resource == CLGlobals.ActionResources.CL_StuntedSpellSlot
+end
