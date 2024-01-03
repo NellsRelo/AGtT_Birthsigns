@@ -28,7 +28,7 @@ end
 --- @param entity userdata SE Entity object
 --- @param baseResource table Table containing Amount, Level, and UUID
 function Utils.TransferSlotsToStunted(entity, baseResource)
-  CLUtils.Info("Entering ModifyStuntedSlotsByResource", Globals.InfoOverride)
+  CLUtils.Info("Entering TransferSlotsToStunted", Globals.InfoOverride)
   local preparationResult = Utils.PrepareStuntedResource(entity, baseResource.Level)
   local delta = baseResource.Amount - preparationResult
   _P(
