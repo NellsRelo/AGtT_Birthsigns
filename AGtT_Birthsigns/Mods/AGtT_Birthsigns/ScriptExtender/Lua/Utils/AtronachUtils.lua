@@ -30,14 +30,18 @@ end
 function Utils.TransferSlotsToStunted(entity, baseResource)
   CLUtils.Info("Entering TransferSlotsToStunted", Globals.InfoOverride)
   local preparationResult = Utils.PrepareStuntedResource(entity, baseResource.Level)
-  local delta = baseResource.Amount - preparationResult
+  local baseAmountToIgnore = Utils.RetrieveSlotValueFromModVars(entity.Uuid.EntityUuid, baseResource.Name,
+    baseResource.Level)
+  local delta = baseResource.Amount - baseAmountToIgnore
   _P(
     "For level " .. baseResource.Level ..
     ": OG Resource amount: " .. baseResource.Amount ..
     ", Amount Prepared: " .. preparationResult ..
+    ", Amount to Ignore: " .. baseAmountToIgnore .. -- returns 0...
     ", Amount to add: " .. delta
   )
 
+  local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level)
   -- Modify Stunted Slots
   CLUtils.ModifyEntityResourceValue(
     entity,
@@ -49,9 +53,11 @@ function Utils.TransferSlotsToStunted(entity, baseResource)
     entity.Uuid.EntityUuid,
     "CL_StuntedSpellSlot",
     baseResource.Level,
-    CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level)
+    CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level),
+    currentStuntedSlots
   )
 
+  local currentBaseSlots = CLUtils.GetResourceAtLevel(entity, baseResource.Name, baseResource.Level)
   -- Remove Base Slots
   CLUtils.SetEntityResourceValue(
     entity,
@@ -64,7 +70,8 @@ function Utils.TransferSlotsToStunted(entity, baseResource)
     entity.Uuid.EntityUuid,
     baseResource.Name,
     baseResource.Level,
-    0
+    0,
+    currentBaseSlots
   )
 end
 

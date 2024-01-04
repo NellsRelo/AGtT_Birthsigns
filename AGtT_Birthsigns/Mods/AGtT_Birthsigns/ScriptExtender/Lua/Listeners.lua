@@ -13,7 +13,6 @@ end)
 Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
   local vars = Utils.GetModVars()
   if Conditions.OnActionResourceChangeConditions(entity) then
-    _D(vars)
     Utils.RegisterEntity(entity.Uuid.EntityUuid)
     CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, Globals.InfoOverride)
     local slotTable = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)

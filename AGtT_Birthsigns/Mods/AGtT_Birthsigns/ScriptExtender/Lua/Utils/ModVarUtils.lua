@@ -19,6 +19,28 @@ function Utils.RegisterEntity(entityId)
   end
 end
 
+--- Register an Entity's Resource with the Global CharacterResources table
+--- @param entityId string UUID of entity
+--- @param slotName string Name of Action Resource
+function Utils.RegisterEntitySlot(entityId, slotName)
+  if not Globals.CharacterResources[entityId][slotName] then
+    Globals.CharacterResources[entityId][slotName] = {}
+  end
+end
+
+--- Register an Entity's Resource at a Given Level with the Global CharacterResources table
+--- @param entityId string UUID of entity
+--- @param slotName string Name of Action Resource
+--- @param slotLevel number Level at which the Action Resource should be present
+function Utils.RegisterEntitySlotLevel(entityId, slotName, slotLevel)
+  if not Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] then
+    Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = {
+      Amount = 0,
+      PrevAmount = 0
+    }
+  end
+end
+
 --- Set ModVars based on Global CharacterResources table
 function Utils.SyncModVars()
   local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
@@ -30,17 +52,22 @@ end
 --- @param slotName string Name of Action Resource
 --- @param slotLevel number Level of Action Resource
 --- @param slotAmount number Current Amount of Action Resource
-function Utils.RegisterSlot(entityId, slotName, slotLevel, slotAmount)
+--- @param prevSlotAmount? number Previous Amount of Action Resource
+function Utils.RegisterSlot(entityId, slotName, slotLevel, slotAmount, prevSlotAmount)
   Utils.RegisterEntity(entityId)
+  Utils.RegisterEntitySlot(entityId, slotName)
+  Utils.RegisterEntitySlotLevel(entityId, slotName, slotLevel)
 
-  if not Globals.CharacterResources[entityId][slotName] then
-    Globals.CharacterResources[entityId][slotName] = {}
-  end
-
-  if not Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] then
-    Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = 0
-  end
-  Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = slotAmount or 0
-
+  Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = {
+    Amount = slotAmount or 0,
+    PrevAmount = prevSlotAmount or CLUtils.GetResourceAtLevel(entityId, slotName, slotLevel) or 0
+  }
   Utils.SyncModVars()
+end
+
+function Utils.RetrieveSlotValueFromModVars(entityId, slotName, slotLevel)
+  Utils.RegisterEntity(entityId)
+  Utils.RegisterEntitySlot(entityId, slotName)
+  Utils.RegisterEntitySlotLevel(entityId, slotName, slotLevel)
+  return Globals.CharacterResources[entityId][slotName]["L" .. slotLevel].PrevAmount
 end
