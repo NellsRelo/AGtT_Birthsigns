@@ -30,14 +30,17 @@ end
 function Utils.TransferSlotsToStunted(entity, baseResource)
   CLUtils.Info("Entering TransferSlotsToStunted", Globals.InfoOverride)
   local preparationResult = Utils.PrepareStuntedResource(entity, baseResource.Level)
-  local baseAmountToIgnore = Utils.RetrieveSlotValueFromModVars(entity.Uuid.EntityUuid, baseResource.Name,
+  local baseAmountToIgnore = Utils.GetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name,
     baseResource.Level)
+
   local delta = baseResource.Amount - baseAmountToIgnore
   _P(
     "For level " .. baseResource.Level ..
     ": OG Resource amount: " .. baseResource.Amount ..
+    ", OG Amount based on GetResourceAtLevel: " .. CLUtils.GetResourceAtLevel(entity, baseResource.Name, baseResource.Level) ..
+    ", Current Stunted Slots: " .. CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level) ..
     ", Amount Prepared: " .. preparationResult ..
-    ", Amount to Ignore: " .. baseAmountToIgnore .. -- returns 0...
+    ", Amount to Ignore: " .. baseAmountToIgnore ..
     ", Amount to add: " .. delta
   )
 
@@ -49,13 +52,15 @@ function Utils.TransferSlotsToStunted(entity, baseResource)
     { Amount = delta, MaxAmount = delta },
     baseResource.Level
   )
+
   Utils.RegisterSlot(
     entity.Uuid.EntityUuid,
     "CL_StuntedSpellSlot",
     baseResource.Level,
-    CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level),
-    currentStuntedSlots
+    CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level)
   )
+
+  Utils.SetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, currentStuntedSlots)
 
   local currentBaseSlots = CLUtils.GetResourceAtLevel(entity, baseResource.Name, baseResource.Level)
   -- Remove Base Slots
@@ -70,9 +75,10 @@ function Utils.TransferSlotsToStunted(entity, baseResource)
     entity.Uuid.EntityUuid,
     baseResource.Name,
     baseResource.Level,
-    0,
-    currentBaseSlots
+    0
   )
+
+  Utils.SetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, currentBaseSlots)
 end
 
 --- Modify Stunted Slots when hit with a Spell
