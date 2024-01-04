@@ -28,7 +28,7 @@ Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
 end)
 
 local function OnSessionLoaded()
-  Globals.ValidSlots = CLUtils.LoadSpellSlotsGroupToArray(Globals.ValidSlots, not Conditions.IsResourceStunted)
+  Globals.ValidSlots = CLUtils.LoadSpellSlotsGroupToArray(Globals.ValidSlots, Conditions.IsResourceNotStunted)
 
   local vars = Utils.GetModVars()
   for entityId, resources in pairs(vars.AGTTBS_CharacterResources) do

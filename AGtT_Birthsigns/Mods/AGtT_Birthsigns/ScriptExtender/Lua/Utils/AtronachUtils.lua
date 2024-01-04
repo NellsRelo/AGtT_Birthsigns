@@ -45,7 +45,6 @@ function Utils.TransferSlotsToStunted(entity, baseResource)
     { Amount = delta, MaxAmount = delta },
     baseResource.Level
   )
-
   Utils.RegisterSlot(
     entity.Uuid.EntityUuid,
     "CL_StuntedSpellSlot",
