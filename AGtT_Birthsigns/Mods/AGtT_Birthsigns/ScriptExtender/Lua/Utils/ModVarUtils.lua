@@ -83,6 +83,7 @@ function Utils.SetPreviousAmount(entityId, slotName, slotLevel, newPrevAmount)
   if Utils.GetPreviousAmount(entityId, slotName, slotLevel) ~= newPrevAmount then
     Globals.CharacterResources[entityId][slotName]["L" .. slotLevel].PrevAmount = newPrevAmount or 0
   end
+  Utils.SyncModVars()
 end
 
 function Utils.IsResourcePresent(entityId, slotName, slotLevel)

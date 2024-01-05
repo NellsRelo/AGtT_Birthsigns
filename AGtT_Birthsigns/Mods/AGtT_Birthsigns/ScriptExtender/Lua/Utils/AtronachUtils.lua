@@ -17,7 +17,7 @@ function Utils.PrepareStuntedResource(entity, level)
   end
 
   if not found then
-    CLUtils.ModifyResourceAmount(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", 1, level)
+    Osi.AddBoosts(entity.Uuid.EntityUuid, "ActionResources(CL_StuntedSpellSlot,1," .. level .. ")", "", "")
     res = 1
   end
 
@@ -50,13 +50,14 @@ function Utils.TransferSlotsToStunted(entity, baseResource)
 
   -- Modify Stunted Slots
   if delta > 0 then
+    CLUtils.Info("Modifying Entity Resource Value for CL_StuntedSpellSlot (" .. currentStuntedSlots .. ")by " .. delta, true)
+    _D(entity.ActionResources.Resources[CLGlobals.ActionResources.CL_StuntedSpellSlot])
     CLUtils.ModifyEntityResourceValue(
       entity,
       CLGlobals.ActionResources.CL_StuntedSpellSlot,
       { Amount = delta, MaxAmount = delta },
       baseResource.Level
     )
-
     Utils.RegisterSlot(
       entity.Uuid.EntityUuid,
       "CL_StuntedSpellSlot",
