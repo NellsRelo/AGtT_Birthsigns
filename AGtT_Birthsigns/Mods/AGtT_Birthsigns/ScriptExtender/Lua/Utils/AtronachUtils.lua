@@ -30,55 +30,58 @@ end
 function Utils.TransferSlotsToStunted(entity, baseResource)
   CLUtils.Info("Entering TransferSlotsToStunted", Globals.InfoOverride)
   local preparationResult = Utils.PrepareStuntedResource(entity, baseResource.Level)
-  local baseAmountToIgnore = Utils.GetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name,
-    baseResource.Level)
-
-  local delta = baseResource.Amount - baseAmountToIgnore
+  local currentBaseSlots = CLUtils.GetResourceAtLevel(entity, baseResource.Name, baseResource.Level) or 0
+  local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level) or 0
+  local baseAmountToIgnore = 0
+  if currentBaseSlots ~= 0 then
+    baseAmountToIgnore = Utils.GetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name,
+      baseResource.Level)
+  end
+  local delta = currentBaseSlots - baseAmountToIgnore
   _P(
     "For level " .. baseResource.Level ..
     ": OG Resource amount: " .. baseResource.Amount ..
-    ", OG Amount based on GetResourceAtLevel: " .. CLUtils.GetResourceAtLevel(entity, baseResource.Name, baseResource.Level) ..
-    ", Current Stunted Slots: " .. CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level) ..
+    ", OG Amount based on GetResourceAtLevel: " .. currentBaseSlots ..
+    ", Current Stunted Slots: " .. currentStuntedSlots ..
     ", Amount Prepared: " .. preparationResult ..
     ", Amount to Ignore: " .. baseAmountToIgnore ..
     ", Amount to add: " .. delta
   )
 
-  local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level)
   -- Modify Stunted Slots
-  CLUtils.ModifyEntityResourceValue(
-    entity,
-    CLGlobals.ActionResources.CL_StuntedSpellSlot,
-    { Amount = delta, MaxAmount = delta },
-    baseResource.Level
-  )
+  if delta > 0 then
+    CLUtils.ModifyEntityResourceValue(
+      entity,
+      CLGlobals.ActionResources.CL_StuntedSpellSlot,
+      { Amount = delta, MaxAmount = delta },
+      baseResource.Level
+    )
 
-  Utils.RegisterSlot(
-    entity.Uuid.EntityUuid,
-    "CL_StuntedSpellSlot",
-    baseResource.Level,
-    CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level)
-  )
-
-  Utils.SetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, currentStuntedSlots)
-
-  local currentBaseSlots = CLUtils.GetResourceAtLevel(entity, baseResource.Name, baseResource.Level)
+    Utils.RegisterSlot(
+      entity.Uuid.EntityUuid,
+      "CL_StuntedSpellSlot",
+      baseResource.Level,
+      CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level),
+      currentStuntedSlots
+    )
+  end
   -- Remove Base Slots
-  CLUtils.SetEntityResourceValue(
-    entity,
-    baseResource.UUID,
-    { Amount = 0, MaxAmount = 0 },
-    baseResource.Level
-  )
+  if currentBaseSlots ~= 0 then
+    CLUtils.SetEntityResourceValue(
+      entity,
+      baseResource.UUID,
+      { Amount = 0, MaxAmount = 0 },
+      baseResource.Level
+    )
 
-  Utils.RegisterSlot(
-    entity.Uuid.EntityUuid,
-    baseResource.Name,
-    baseResource.Level,
-    0
-  )
-
-  Utils.SetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, currentBaseSlots)
+    Utils.RegisterSlot(
+      entity.Uuid.EntityUuid,
+      baseResource.Name,
+      baseResource.Level,
+      0,
+      currentBaseSlots
+    )
+  end
 end
 
 --- Modify Stunted Slots when hit with a Spell

@@ -27,3 +27,11 @@ function Conditions.IsResourceNotStunted(resource)
 
   return resource ~= CLGlobals.ActionResources.CL_StuntedSpellSlot
 end
+
+function Conditions.DidSlotChange(entityId, resource)
+  local res = false
+  if resource.Amount and CLUtils.GetResourceAtLevel(entityId, resource.Name, resource.Level) ~= Utils.GetPreviousAmount(entityId, resource.Name, resource.Level) then
+    res = true
+  end
+  return res
+end

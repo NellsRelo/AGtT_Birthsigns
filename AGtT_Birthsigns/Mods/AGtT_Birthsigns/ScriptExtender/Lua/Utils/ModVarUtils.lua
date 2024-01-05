@@ -53,18 +53,21 @@ end
 --- @param slotLevel number Level of Action Resource
 --- @param slotAmount number Current Amount of Action Resource
 --- @param prevSlotAmount? number Previous Amount of Action Resource
-function Utils.RegisterSlot(entityId, slotName, slotLevel, slotAmount)
+function Utils.RegisterSlot(entityId, slotName, slotLevel, slotAmount, prevSlotAmount)
+  CLUtils.Info("Entering RegisterSlot", Globals.InfoOverride)
   Utils.RegisterEntity(entityId)
   Utils.RegisterEntitySlot(entityId, slotName)
   Utils.RegisterEntitySlotLevel(entityId, slotName, slotLevel)
 
   Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = {
-    Amount = slotAmount or 0
+    Amount = slotAmount or 0,
+    PrevAmount = prevSlotAmount or 0
   }
   Utils.SyncModVars()
 end
 
 function Utils.GetPreviousAmount(entityId, slotName, slotLevel)
+  CLUtils.Info("Entering GetPreviousAmount", Globals.InfoOverride)
   Utils.RegisterEntity(entityId)
   Utils.RegisterEntitySlot(entityId, slotName)
   Utils.RegisterEntitySlotLevel(entityId, slotName, slotLevel)
@@ -72,11 +75,19 @@ function Utils.GetPreviousAmount(entityId, slotName, slotLevel)
 end
 
 function Utils.SetPreviousAmount(entityId, slotName, slotLevel, newPrevAmount)
+  CLUtils.Info("Entering SetPreviousAmount", Globals.InfoOverride)
   Utils.RegisterEntity(entityId)
   Utils.RegisterEntitySlot(entityId, slotName)
   Utils.RegisterEntitySlotLevel(entityId, slotName, slotLevel)
 
-  if Globals.CharacterResources[entityId][slotName]["L" .. slotLevel].PrevAmount ~= newPrevAmount then
-    Globals.CharacterResources[entityId][slotName]["L" .. slotLevel].PrevAmount = newPrevAmount
+  if Utils.GetPreviousAmount(entityId, slotName, slotLevel) ~= newPrevAmount then
+    Globals.CharacterResources[entityId][slotName]["L" .. slotLevel].PrevAmount = newPrevAmount or 0
   end
+end
+
+function Utils.IsResourcePresent(entityId, slotName, slotLevel)
+  CLUtils.Info("Entering IsResourcePresent", Globals.InfoOverride)
+  Utils.RegisterEntity(entityId)
+  Utils.RegisterEntitySlot(entityId, slotName)
+  return CLUtils.IsKeyInTable(Globals.CharacterResources[entityId][slotName], "L" .. slotLevel)
 end
