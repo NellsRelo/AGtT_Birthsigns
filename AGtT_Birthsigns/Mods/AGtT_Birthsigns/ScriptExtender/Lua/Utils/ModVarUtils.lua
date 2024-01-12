@@ -47,6 +47,12 @@ function Utils.SyncModVars()
   vars.AGTTBS_CharacterResources = Globals.CharacterResources
 end
 
+-- Set Global CharacterResources table based on ModVars
+function Utils.InitCharResourcesOnLoad()
+  local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
+  Globals.CharacterResources = vars.AGTTBS_CharacterResources
+end
+
 --- Register Action Resources to an Entity in the Global Character Resources table
 --- @param entityId string UUID of entity
 --- @param slotName string Name of Action Resource

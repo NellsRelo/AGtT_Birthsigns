@@ -29,8 +29,8 @@ end)
 
 local function OnSessionLoaded()
   Globals.ValidSlots = CLUtils.LoadSpellSlotsGroupToArray(Globals.ValidSlots, Conditions.IsResourceNotStunted)
-
   local vars = Utils.GetModVars()
+  -- Globals.CharacterResources = vars.AGTTBS_CharacterResources
   for entityId, resources in pairs(vars.AGTTBS_CharacterResources) do
     local entity = Ext.Entity.Get(entityId)
 

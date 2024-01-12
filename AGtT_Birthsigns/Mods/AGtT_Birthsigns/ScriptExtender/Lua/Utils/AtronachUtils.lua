@@ -9,6 +9,7 @@ function Utils.PrepareStuntedResource(entity, level)
   local resourceData = CLUtils.GetActionResourceData(entity, "CL_StuntedSpellSlot")
 
   if resourceData then
+    _D(resourceData)
     for _, resourceObj in pairs(resourceData) do
       if CLUtils.ToInteger(resourceObj.ResourceId) == CLUtils.ToInteger(level) then
         found = true
@@ -17,7 +18,8 @@ function Utils.PrepareStuntedResource(entity, level)
   end
 
   if not found then
-    Osi.AddBoosts(entity.Uuid.EntityUuid, "ActionResources(CL_StuntedSpellSlot,1," .. level .. ")", "", "")
+    Osi.AddBoosts(entity.Uuid.EntityUuid, "ActionResource(CL_StuntedSpellSlot,1," .. level .. ")", "", "")
+    entity:Replicate("BoostsContainer")
     res = 1
   end
 
@@ -33,7 +35,7 @@ function Utils.TransferSlotsToStunted(entity, baseResource)
   local currentBaseSlots = CLUtils.GetResourceAtLevel(entity, baseResource.Name, baseResource.Level) or 0
   local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level) or 0
   local baseAmountToIgnore = 0
-  if currentBaseSlots ~= 0 then
+  if currentBaseSlots > 0 then
     baseAmountToIgnore = Utils.GetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name,
       baseResource.Level)
   end
