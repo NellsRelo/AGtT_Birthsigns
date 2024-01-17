@@ -14,8 +14,9 @@ Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
   if Conditions.OnActionResourceChangeConditions(entity) then
     CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, Globals.InfoOverride)
     local slotTable = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)
+    _D(slotTable)
     for _, slotObj in pairs(slotTable) do
-      if Utils.GetValue(entity.Uuid.EntityUuid, slotObj.Name, slotObj.Level, "PrevAmount") ~= slotObj.Amount then
+      if Conditions.IsResourceChanged(entity, slotObj) then
         Utils.TransferResource(entity, slotObj)
       end
     end
