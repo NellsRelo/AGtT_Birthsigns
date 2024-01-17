@@ -5,9 +5,14 @@ function Utils.TransferResource(entity, baseResource)
   CLUtils.Info("Entering TransferResource", Globals.InfoOverride)
   local currentBaseSlots = CLUtils.GetResourceAtLevel(entity, baseResource.Name, baseResource.Level) or 0
   local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level) or 0
-  local baseAmountToIgnore = Utils.GetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level)
+  local baseAmountToIgnore = 0
+
+  if currentBaseSlots > 0 then
+    baseAmountToIgnore = Utils.GetValue(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, "PrevAmount")
+  end
+
   local delta = currentBaseSlots - baseAmountToIgnore
-  Utils.SetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, currentBaseSlots)
+
   _P(
     "For level " .. baseResource.Level ..
     ": OG Resource amount: " .. baseResource.Amount ..
@@ -16,16 +21,41 @@ function Utils.TransferResource(entity, baseResource)
     ", Amount to Ignore: " .. baseAmountToIgnore ..
     ", Amount to add: " .. delta
   )
-  Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", delta, baseResource.Level)
-  Utils.AddResourceBoosts(entity, baseResource.Name, 0 - delta, baseResource.Level)
 
-  Utils.RegisterSlot(
-    entity.Uuid.EntityUuid,
-    "CL_StuntedSpellSlot",
-    baseResource.Level,
-    baseResource.Amount,
-    currentStuntedSlots
-  )
+  -- Add Slots to StuntedSlots
+  if delta > 0 then
+    CLUtils.Info("Modifying Entity Resource Value for CL_StuntedSpellSlot (" .. currentStuntedSlots .. ") by " .. delta, true)
+    _D(entity.ActionResources.Resources[CLGlobals.ActionResources.CL_StuntedSpellSlot])
+    Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", delta, baseResource.Level)
+    Utils.RegisterSlot(
+      entity.Uuid.EntityUuid,
+      "CL_StuntedSpellSlot",
+      baseResource.Level,
+      {
+        slotAmount = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level),
+        prevSlotAmount = currentStuntedSlots
+      }
+    )
+  end
+
+  -- Remove Slots
+  if currentBaseSlots ~= 0 then
+    CLUtils.SetEntityResourceValue(
+      entity,
+      baseResource.UUID,
+      { Amount = 0, MaxAmount = 0 },
+      baseResource.Level
+    )
+    Utils.RegisterSlot(
+      entity.Uuid.EntityUuid,
+      baseResource.Name,
+      baseResource.Level,
+      {
+        slotAmount = 0,
+        prevSlotAmount = currentBaseSlots,
+      }
+    )
+  end
 
   _D(Globals.CharacterResources[entity.Uuid.EntityUuid])
 end
@@ -44,7 +74,7 @@ function Utils.AddResourceBoosts(entity, name, amount, level)
     entity.Uuid.EntityUuid,
     name,
     level,
-    CLUtils.GetResourceAtLevel(entity, name, level) or 0
+    { slotAmount = CLUtils.GetResourceAtLevel(entity, name, level) } or 0
   )
   entity:Replicate("BoostsContainer")
   entity:Replicate("ActionResources")
@@ -72,7 +102,7 @@ function Utils.ModifyStuntedSlotsBySpell(entity, spell, amount)
     entity.Uuid.EntityUuid,
     "CL_StuntedSpellSlot",
     level,
-    CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", level) or 0
+    { slotAmount = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", level) } or 0
   )
 end
 
