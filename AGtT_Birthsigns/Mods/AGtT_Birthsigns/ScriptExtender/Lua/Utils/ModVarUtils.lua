@@ -64,11 +64,13 @@ function Utils.RegisterSlot(entityId, slotName, slotLevel, slotAmount, prevSlotA
   Utils.RegisterEntity(entityId)
   Utils.RegisterEntitySlot(entityId, slotName)
   Utils.RegisterEntitySlotLevel(entityId, slotName, slotLevel)
+  if not Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] then
+    Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = {}
+  end
 
-  Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = {
-    Amount = slotAmount or 0,
-    PrevAmount = prevSlotAmount or 0
-  }
+  Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)].Amount = slotAmount or 0
+  Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)].PrevAmount = prevSlotAmount or
+    Utils.GetPreviousAmount(entityId, slotName, slotLevel) or 0
   Utils.SyncModVars()
 end
 

@@ -5,8 +5,9 @@ function Utils.TransferResource(entity, baseResource)
   CLUtils.Info("Entering TransferResource", Globals.InfoOverride)
   local currentBaseSlots = CLUtils.GetResourceAtLevel(entity, baseResource.Name, baseResource.Level) or 0
   local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level) or 0
-  local baseAmountToIgnore = 0
-  local delta = baseResource.Amount
+  local baseAmountToIgnore = Utils.GetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level)
+  local delta = currentBaseSlots - baseAmountToIgnore
+  Utils.SetPreviousAmount(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, currentBaseSlots)
   _P(
     "For level " .. baseResource.Level ..
     ": OG Resource amount: " .. baseResource.Amount ..
@@ -15,14 +16,36 @@ function Utils.TransferResource(entity, baseResource)
     ", Amount to Ignore: " .. baseAmountToIgnore ..
     ", Amount to add: " .. delta
   )
-  Utils.AddBoosts(entity, "CL_StuntedSpellSlot", delta, baseResource.Level)
-  Utils.AddBoosts(entity, baseResource.Name, 0 - delta, baseResource.Level)
+  Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", delta, baseResource.Level)
+  Utils.AddResourceBoosts(entity, baseResource.Name, 0 - delta, baseResource.Level)
 
-  Utils.RegisterSlot(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", baseResource.Level, baseResource.Amount, currentBaseSlots)
+  Utils.RegisterSlot(
+    entity.Uuid.EntityUuid,
+    "CL_StuntedSpellSlot",
+    baseResource.Level,
+    baseResource.Amount,
+    currentStuntedSlots
+  )
+
+  _D(Globals.CharacterResources[entity.Uuid.EntityUuid])
 end
 
-function Utils.AddBoosts(entity, name, amount, level)
+--- Add an amount of resources to an entity based on a given resource level.
+--- @param entity userdata Entity to add the resource to.
+--- @param name string Name of the desired Action Resource
+--- @param amount? number The amount of the resource you want to add. Defaults to 1.
+--- @param level? number The Level at which you want the resource to be added. Defaults to 0.
+function Utils.AddResourceBoosts(entity, name, amount, level)
+  level = level or 0
+  amount = amount or 1
+
   Osi.AddBoosts(entity.Uuid.EntityUuid, "ActionResource(" .. name .. "," .. amount .. "," .. level .. ")", "", "")
+  Utils.RegisterSlot(
+    entity.Uuid.EntityUuid,
+    name,
+    level,
+    CLUtils.GetResourceAtLevel(entity, name, level) or 0
+  )
   entity:Replicate("BoostsContainer")
   entity:Replicate("ActionResources")
 end
