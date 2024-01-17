@@ -7,34 +7,25 @@ function Utils.TransferResource(entity, baseResource)
   local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level) or 0
   local baseAmountToIgnore = 0
 
-  if currentBaseSlots > 0 then
+  if baseResource.Amount > 0 then
     baseAmountToIgnore = Utils.GetValue(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, "PrevAmount")
   end
 
   local delta = currentBaseSlots - baseAmountToIgnore
-
-  _P(
-    "For level " .. baseResource.Level ..
-    ": OG Resource amount: " .. baseResource.Amount ..
-    ", OG Amount based on GetResourceAtLevel: " .. currentBaseSlots ..
-    ", Current Stunted Slots: " .. currentStuntedSlots ..
-    ", Amount to Ignore: " .. baseAmountToIgnore ..
-    ", Amount to add: " .. delta
-  )
+  local newCurrentStuntedSlots = currentStuntedSlots + delta
 
   -- Add Slots to StuntedSlots
   if delta > 0 then
-    CLUtils.Info("Modifying Entity Resource Value for CL_StuntedSpellSlot (" .. currentStuntedSlots .. ") by " .. delta,
-      true)
-    Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", delta, baseResource.Level)
-    Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", baseResource.Level, "Amount",
-      CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level))
+    Osi.RemoveBoosts(entity.Uuid.EntityUuid,
+      "ActionResourceOverride(CL_StuntedSlot," .. currentStuntedSlots .. "," .. baseResource.Level .. ")", 1, "", "")
+    Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", newCurrentStuntedSlots, baseResource.Level, true)
+
+    Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", baseResource.Level, "Amount", newCurrentStuntedSlots)
     Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", baseResource.Level, "PrevAmount", currentStuntedSlots)
   end
 
   -- Remove Slots
   if currentBaseSlots ~= 0 then
-    --Utils.AddResourceBoosts(entity, baseResource.Name, 0, baseResource.Level, true)
     CLUtils.SetEntityResourceValue(
       entity,
       baseResource.UUID,
@@ -45,7 +36,7 @@ function Utils.TransferResource(entity, baseResource)
     Utils.SetValue(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, "PrevAmount", currentBaseSlots)
   end
 
-  _D(Globals.CharacterResources[entity.Uuid.EntityUuid])
+  entity:Replicate("ActionResources")
 end
 
 --- Add an amount of resources to an entity based on a given resource level.
