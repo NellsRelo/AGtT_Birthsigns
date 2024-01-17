@@ -24,8 +24,8 @@ function Utils.TransferResource(entity, baseResource)
 
   -- Add Slots to StuntedSlots
   if delta > 0 then
-    CLUtils.Info("Modifying Entity Resource Value for CL_StuntedSpellSlot (" .. currentStuntedSlots .. ") by " .. delta, true)
-    _D(entity.ActionResources.Resources[CLGlobals.ActionResources.CL_StuntedSpellSlot])
+    CLUtils.Info("Modifying Entity Resource Value for CL_StuntedSpellSlot (" .. currentStuntedSlots .. ") by " .. delta,
+      true)
     Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", delta, baseResource.Level)
     Utils.RegisterSlot(
       entity.Uuid.EntityUuid,
@@ -46,6 +46,8 @@ function Utils.TransferResource(entity, baseResource)
       { Amount = 0, MaxAmount = 0 },
       baseResource.Level
     )
+    entity:Replicate("BoostsContainer")
+    entity:Replicate("ActionResources")
     Utils.RegisterSlot(
       entity.Uuid.EntityUuid,
       baseResource.Name,
