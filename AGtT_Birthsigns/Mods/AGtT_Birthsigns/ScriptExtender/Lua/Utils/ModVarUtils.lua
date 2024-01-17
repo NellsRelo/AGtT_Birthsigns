@@ -89,6 +89,13 @@ function Utils.SetValue(entityId, slotName, slotLevel, key, value)
   Utils.SyncModVars()
 end
 
+--- Retrieve the value of a given key in CharacterResources for an entity, resource,
+--- and level. If nonexistant, set to default value
+--- @param entityId string UUID of entity
+--- @param slotName string Name of Action Resource
+--- @param slotLevel number Level of Action Resource
+--- @param key string Name of Value Key - `Amount` or `PrevAmount`
+---@return number
 function Utils.GetValue(entityId, slotName, slotLevel, key)
   CLUtils.Info("Entering GetValue", Globals.InfoOverride)
   Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
