@@ -1,5 +1,5 @@
-function Conditions.OnActionResourceChangeConditions(entity)
-  CLUtils.Info("Entering OnActionResourceChangeConditions")
+function Conditions.IsAtronachPlayer(entity)
+  CLUtils.Info("Entering IsAtronachPlayer")
   local res = false
 
   if entity.Uuid and Osi.IsPlayer(entity.Uuid.EntityUuid) == 1 and CLUtils.EntityHasPassive(entity, Globals.AtronachPassive) then

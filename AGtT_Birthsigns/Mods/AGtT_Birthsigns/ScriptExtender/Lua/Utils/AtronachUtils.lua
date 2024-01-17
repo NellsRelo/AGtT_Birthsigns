@@ -16,12 +16,7 @@ function Utils.TransferResource(entity, baseResource)
 
   -- Add Slots to StuntedSlots
   if delta > 0 then
-    Osi.RemoveBoosts(entity.Uuid.EntityUuid,
-      "ActionResourceOverride(CL_StuntedSlot," .. currentStuntedSlots .. "," .. baseResource.Level .. ")", 1, "", "")
-    Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", newCurrentStuntedSlots, baseResource.Level, true)
-
-    Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", baseResource.Level, "Amount", newCurrentStuntedSlots)
-    Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", baseResource.Level, "PrevAmount", currentStuntedSlots)
+    Utils.IncrementStuntedSlots(entity, currentStuntedSlots, newCurrentStuntedSlots, baseResource.Level)
   end
 
   -- Remove Slots
@@ -37,6 +32,16 @@ function Utils.TransferResource(entity, baseResource)
   end
 
   entity:Replicate("ActionResources")
+end
+
+function Utils.IncrementStuntedSlots(entity, oldAmount, newAmount, level)
+  Osi.RemoveBoosts(entity.Uuid.EntityUuid,
+    "ActionResourceOverride(CL_StuntedSlot," .. oldAmount .. "," .. level .. ")", 1, "", "")
+  entity:Replicate("BoostsContainer")
+  entity:Replicate("ActionResources")
+  Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", newAmount, level, true)
+  Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", level, "Amount", newAmount)
+  Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", level, "PrevAmount", oldAmount)
 end
 
 --- Add an amount of resources to an entity based on a given resource level.
@@ -67,17 +72,10 @@ function Utils.ModifyStuntedSlotsBySpell(entity, spell, amount)
   CLUtils.Info("Entering ModifyStuntedSlotsBySpell", Globals.InfoOverride)
   local spellData = Ext.Stats.Get(spell)
   local level = spellData.Level or 1
-
+  local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", level) or 0
   if spellData.SpellFlags then
-    CLUtils.ModifyEntityResourceValue(
-      entity,
-      "CL_StuntedSpellSlot",
-      { Amount = amount, MaxAmount = amount },
-      level
-    )
+    Utils.IncrementStuntedSlots(entity, currentStuntedSlots, currentStuntedSlots + amount, level)
   end
-  Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", level, "Amount",
-    CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", level))
 end
 
 --- Set Action Resources based on ModVars when loading a session
