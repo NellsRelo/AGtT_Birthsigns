@@ -75,13 +75,17 @@ function Utils.RegisterSlot(entityId, slotName, slotLevel, args)
   Utils.SyncModVars()
 end
 
-function Utils.SetPreviousAmount(entityId, slotName, slotLevel, newPrevAmount)
-  CLUtils.Info("Entering SetPreviousAmount", Globals.InfoOverride)
+--- Set a key to in CharacterResources[EntityId][SlotName][SlotLevel] to a given value
+--- @param entityId string UUID of entity
+--- @param slotName string Name of Action Resource
+--- @param slotLevel number Level of Action Resource
+--- @param key string Name of Value Key - `Amount` or `PrevAmount`
+--- @param value number New Value to set
+function Utils.SetValue(entityId, slotName, slotLevel, key, value)
+  CLUtils.Info("Entering SetValue", Globals.InfoOverride)
   Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
 
-  if Utils.GetValue(entityId, slotName, slotLevel, "PrevAmount") ~= newPrevAmount then
-    Globals.CharacterResources[entityId][slotName]["L" .. slotLevel].PrevAmount = newPrevAmount or 0
-  end
+  Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)][key] = value
   Utils.SyncModVars()
 end
 
