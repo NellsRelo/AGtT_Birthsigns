@@ -29,12 +29,18 @@ function Utils.TransferResource(entity, baseResource)
     Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", delta, baseResource.Level)
     Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", baseResource.Level, "Amount",
       CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level))
-    Utils.SetValue(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, "PrevAmount", currentStuntedSlots)
+    Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", baseResource.Level, "PrevAmount", currentStuntedSlots)
   end
 
   -- Remove Slots
   if currentBaseSlots ~= 0 then
-    Utils.AddResourceBoosts(entity, baseResource.Name, 0 - delta, baseResource.Level)
+    --Utils.AddResourceBoosts(entity, baseResource.Name, 0, baseResource.Level, true)
+    CLUtils.SetEntityResourceValue(
+      entity,
+      baseResource.UUID,
+      { Amount = 0, MaxAmount = 0 },
+      baseResource.Level
+    )
     Utils.SetValue(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, "Amount", 0)
     Utils.SetValue(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, "PrevAmount", currentBaseSlots)
   end
@@ -44,14 +50,19 @@ end
 
 --- Add an amount of resources to an entity based on a given resource level.
 --- @param entity userdata Entity to add the resource to.
---- @param name string Name of the desired Action Resource
+--- @param name string Name of the desired Action Resource.
 --- @param amount? number The amount of the resource you want to add. Defaults to 1.
 --- @param level? number The Level at which you want the resource to be added. Defaults to 0.
-function Utils.AddResourceBoosts(entity, name, amount, level)
+--- @param override? boolean True if ActionResourceOverride, false if ActionResource.
+function Utils.AddResourceBoosts(entity, name, amount, level, override)
   level = level or 0
   amount = amount or 1
+  local boost = "ActionResource"
 
-  Osi.AddBoosts(entity.Uuid.EntityUuid, "ActionResource(" .. name .. "," .. amount .. "," .. level .. ")", "", "")
+  if override then
+    boost = "ActionResourceOverride"
+  end
+  Osi.AddBoosts(entity.Uuid.EntityUuid, boost .. "(" .. name .. "," .. amount .. "," .. level .. ")", "", "")
 
   entity:Replicate("BoostsContainer")
   entity:Replicate("ActionResources")
