@@ -12,7 +12,6 @@ end)
 -- Add Stunted Slots based on Existing Spell Slots, remove old ones
 Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
   if Conditions.OnActionResourceChangeConditions(entity) then
-    Utils.RegisterEntity(entity.Uuid.EntityUuid)
     CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, Globals.InfoOverride)
     local slotTable = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)
     for _, slotObj in pairs(slotTable) do

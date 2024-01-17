@@ -11,31 +11,10 @@ function Utils.GetModVars()
   return characterResourceTable
 end
 
---- Register an Entity with the Global CharacterResources table
---- @param entityId string UUID of entity
-function Utils.RegisterEntity(entityId)
-  if not Globals.CharacterResources[entityId] then
-    Globals.CharacterResources[entityId] = {}
-  end
-end
-
---- Register an Entity's Resource with the Global CharacterResources table
---- @param entityId string UUID of entity
---- @param slotName string Name of Action Resource
-function Utils.RegisterEntitySlot(entityId, slotName)
-  if not Globals.CharacterResources[entityId][slotName] then
-    Globals.CharacterResources[entityId][slotName] = {}
-  end
-end
-
---- Register an Entity's Resource at a Given Level with the Global CharacterResources table
---- @param entityId string UUID of entity
---- @param slotName string Name of Action Resource
---- @param slotLevel number Level at which the Action Resource should be present
-function Utils.RegisterEntitySlotLevel(entityId, slotName, slotLevel)
-  if not Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] then
-    Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = {}
-  end
+--- Set ModVars based on Global CharacterResources table
+function Utils.SyncModVars()
+  local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
+  vars.AGTTBS_CharacterResources = Globals.CharacterResources
 end
 
 --- Wrapper function to register an Entity, Resource, and Resource Level
@@ -43,36 +22,15 @@ end
 --- @param slotName string Name of Action Resource
 --- @param slotLevel number Level at which the Action Resource should be present
 function Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
-  Utils.RegisterEntity(entityId)
-  Utils.RegisterEntitySlot(entityId, slotName)
-  Utils.RegisterEntitySlotLevel(entityId, slotName, slotLevel)
-end
-
---- Set ModVars based on Global CharacterResources table
-function Utils.SyncModVars()
-  local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
-  vars.AGTTBS_CharacterResources = Globals.CharacterResources
-end
-
--- Set Global CharacterResources table based on ModVars
-function Utils.InitCharResourcesOnLoad()
-  local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
-  Globals.CharacterResources = vars.AGTTBS_CharacterResources
-end
-
---- Register Action Resources to an Entity in the Global Character Resources table
---- @param entityId string UUID of entity
---- @param slotName string Name of Action Resource
---- @param slotLevel number Level of Action Resource
---- @param args table table containing Current (`slotAmount`) and Previous (`prevSlotAmount`) Amount of Action Resource
-function Utils.RegisterSlot(entityId, slotName, slotLevel, args)
-  CLUtils.Info("Entering RegisterSlot", Globals.InfoOverride)
-  Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
-
-  Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)].Amount = args.slotAmount or 0
-  Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)].PrevAmount = args.prevSlotAmount or
-    Utils.GetValue(entityId, slotName, slotLevel, "PrevAmount") or 0
-  Utils.SyncModVars()
+  if not Globals.CharacterResources[entityId] then
+    Globals.CharacterResources[entityId] = {}
+  end
+  if not Globals.CharacterResources[entityId][slotName] then
+    Globals.CharacterResources[entityId][slotName] = {}
+  end
+  if not Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] then
+    Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = {}
+  end
 end
 
 --- Set a key to in CharacterResources[EntityId][SlotName][SlotLevel] to a given value

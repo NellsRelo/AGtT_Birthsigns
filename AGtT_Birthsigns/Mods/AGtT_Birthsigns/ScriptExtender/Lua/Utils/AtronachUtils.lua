@@ -4,7 +4,7 @@
 function Utils.TransferResource(entity, baseResource)
   CLUtils.Info("Entering TransferResource", Globals.InfoOverride)
   local currentBaseSlots = CLUtils.GetResourceAtLevel(entity, baseResource.Name, baseResource.Level) or 0
-  local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, CLGlobals.ActionResources.CL_StuntedSpellSlot, baseResource.Level) or 0
+  local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level) or 0
   local baseAmountToIgnore = 0
 
   if currentBaseSlots > 0 then
@@ -26,9 +26,9 @@ function Utils.TransferResource(entity, baseResource)
   if delta > 0 then
     CLUtils.Info("Modifying Entity Resource Value for CL_StuntedSpellSlot (" .. currentStuntedSlots .. ") by " .. delta,
       true)
-    Utils.AddResourceBoosts(entity, CLGlobals.ActionResources.CL_StuntedSpellSlot, delta, baseResource.Level)
-    Utils.SetValue(entity.Uuid.EntityUuid, CLGlobals.ActionResources.CL_StuntedSpellSlot, baseResource.Level, "Amount",
-      CLUtils.GetResourceAtLevel(entity, CLGlobals.ActionResources.CL_StuntedSpellSlot, baseResource.Level))
+    Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", delta, baseResource.Level)
+    Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", baseResource.Level, "Amount",
+      CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", baseResource.Level))
     Utils.SetValue(entity.Uuid.EntityUuid, baseResource.Name, baseResource.Level, "PrevAmount", currentStuntedSlots)
   end
 
@@ -52,12 +52,7 @@ function Utils.AddResourceBoosts(entity, name, amount, level)
   amount = amount or 1
 
   Osi.AddBoosts(entity.Uuid.EntityUuid, "ActionResource(" .. name .. "," .. amount .. "," .. level .. ")", "", "")
-  Utils.RegisterSlot(
-    entity.Uuid.EntityUuid,
-    name,
-    level,
-    { slotAmount = CLUtils.GetResourceAtLevel(entity, name, level) } or 0
-  )
+
   entity:Replicate("BoostsContainer")
   entity:Replicate("ActionResources")
 end
@@ -74,18 +69,13 @@ function Utils.ModifyStuntedSlotsBySpell(entity, spell, amount)
   if spellData.SpellFlags then
     CLUtils.ModifyEntityResourceValue(
       entity,
-      CLGlobals.ActionResources.CL_StuntedSpellSlot,
+      "CL_StuntedSpellSlot",
       { Amount = amount, MaxAmount = amount },
       level
     )
   end
-
-  Utils.RegisterSlot(
-    entity.Uuid.EntityUuid,
-    CLGlobals.ActionResources.CL_StuntedSpellSlot,
-    level,
-    { slotAmount = CLUtils.GetResourceAtLevel(entity, CLGlobals.ActionResources.CL_StuntedSpellSlot, level) } or 0
-  )
+  Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", level, "Amount",
+    CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", level))
 end
 
 --- Set Action Resources based on ModVars when loading a session
