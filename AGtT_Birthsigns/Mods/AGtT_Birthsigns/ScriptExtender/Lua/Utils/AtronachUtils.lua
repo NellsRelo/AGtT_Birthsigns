@@ -37,12 +37,23 @@ end
 function Utils.IncrementStuntedSlots(entity, oldAmount, newAmount, level)
   CLUtils.Info("Entering IncrementStuntedSlots", Globals.InfoOverride)
   Osi.RemoveBoosts(entity.Uuid.EntityUuid,
-    "ActionResourceOverride(CL_StuntedSlot," .. oldAmount .. "," .. level .. ")", 1, "", "")
+    "ActionResourceOverride(CL_StuntedSpellSlot," .. oldAmount .. "," .. level .. ")", 1, "", "")
   entity:Replicate("BoostsContainer")
   entity:Replicate("ActionResources")
   Utils.AddResourceBoosts(entity, "CL_StuntedSpellSlot", newAmount, level, true)
   Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", level, "Amount", newAmount)
   Utils.SetValue(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", level, "PrevAmount", oldAmount)
+end
+
+function Utils.RemoveStuntedSlots(entity)
+  CLUtils.Info("Entering RemoveStuntedSlots", Globals.InfoOverride)
+  local slotsToRemove = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)
+  for _, slotObj in pairs(slotsToRemove) do
+    if slotObj.Name == "CL_StuntedSpellSlot" then
+      Utils.IncrementStuntedSlots(entity, slotObj.Amount, 0, slotObj.Level)
+    end
+  end
+  Utils.IncrementStuntedSlots(entity, 0, 1, 1)
 end
 
 --- Add an amount of resources to an entity based on a given resource level.

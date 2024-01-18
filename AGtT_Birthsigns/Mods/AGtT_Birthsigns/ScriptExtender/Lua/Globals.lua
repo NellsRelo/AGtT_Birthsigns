@@ -3,7 +3,7 @@ Globals.ValidSlots = {}
 Globals.SlotLevels = {}
 Globals.CharacterResources = {}
 Globals.SyncingSlots = false
-Globals.InfoOverride = true
+Globals.InfoOverride = false
 Globals.AtronachPassive = "AGTT_StuntedMagicka"
 
 Globals.ModVarKeyDefaults = {

@@ -12,7 +12,10 @@ Ext.Osiris.RegisterListener("LeveledUp", 1, "after", function (character)
   Actions.OnLevelUp(character)
 end)
 
--- TODO: Listener for Respec to remove Atronach Slots
+-- Listener for Respec to remove Atronach Slots
+Ext.Osiris.RegisterListener("RespecCompleted", 1, "after", function (character)
+  Actions.OnRespec(character)
+end)
 
 -- Add Stunted Slots based on Existing Spell Slots, remove old ones.
 Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
