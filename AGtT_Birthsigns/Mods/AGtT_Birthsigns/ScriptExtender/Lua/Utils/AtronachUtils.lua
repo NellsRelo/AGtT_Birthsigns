@@ -93,3 +93,17 @@ function Utils.SyncSlotValuesOnSession(entity, resources)
     end
   end
 end
+
+function Utils.NullifySpellSlots(entity)
+  local slotTable = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)
+  for _, slotObj in pairs(slotTable) do
+    if slotObj.Name ~= "CL_StuntedSpellSlot" then
+      CLUtils.SetEntityResourceValue(
+        entity,
+        slotObj.UUID,
+        { Amount = 0, MaxAmount = 0 },
+        slotObj.Level
+      )
+    end
+  end
+end

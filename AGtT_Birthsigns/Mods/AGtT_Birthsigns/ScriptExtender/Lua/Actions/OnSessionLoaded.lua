@@ -8,7 +8,7 @@ function Actions.OnSessionLoaded()
 
   for entityId, resources in pairs(vars.AGTTBS_CharacterResources) do
     local entity = Ext.Entity.Get(entityId)
-    Utils.SyncSlotValuesOnSession(entity, resources)
+    Utils.NullifySpellSlots(entity)
   end
   _P("Globals finished Syncing")
   Globals.SyncingSlots = false
