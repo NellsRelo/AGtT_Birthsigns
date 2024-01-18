@@ -16,7 +16,10 @@ end)
 
 -- Add Stunted Slots based on Existing Spell Slots, remove old ones.
 Ext.Entity.Subscribe("ActionResources", function (entity, _, _)
-  Actions.OnResourceChanged(entity)
+  if not Globals.SyncingSlots then Actions.OnResourceChanged(entity) end
 end)
 
+Ext.Events.SessionLoading:Subscribe(Actions.OnSessionLoading)
+
 Ext.Events.SessionLoaded:Subscribe(Actions.OnSessionLoaded)
+Ext.Events.ResetCompleted:Subscribe(Actions.OnSessionLoaded)
