@@ -1,6 +1,7 @@
 --- Retrieve ModVars
 ---@return table characterResourceTable
 function Utils.GetModVars()
+  CLUtils.Info("Entering GetModVars", Globals.InfoOverride)
   local characterResourceTable = {}
   local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
   if not vars.AGTTBS_CharacterResources then
@@ -13,6 +14,7 @@ end
 
 --- Set ModVars based on Global CharacterResources table
 function Utils.SyncModVars()
+  CLUtils.Info("Entering SyncModVars", Globals.InfoOverride)
   local vars = Ext.Vars.GetModVariables(AGTTBS.UUID)
   vars.AGTTBS_CharacterResources = Globals.CharacterResources
 end
@@ -22,6 +24,7 @@ end
 --- @param slotName string Name of Action Resource
 --- @param slotLevel number Level at which the Action Resource should be present
 function Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
+  CLUtils.Info("Entering RegisterEntityBootstrap", Globals.InfoOverride)
   if not Globals.CharacterResources[entityId] then
     Globals.CharacterResources[entityId] = {}
   end

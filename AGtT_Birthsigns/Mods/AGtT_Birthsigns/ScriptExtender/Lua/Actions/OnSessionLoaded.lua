@@ -6,10 +6,9 @@ function Actions.OnSessionLoaded()
   Globals.ValidSlots = CLUtils.LoadSpellSlotsGroupToArray(Globals.ValidSlots)
   local vars = Utils.GetModVars()
 
-  for entityId, resources in pairs(vars.AGTTBS_CharacterResources) do
+  for entityId, _ in pairs(vars.AGTTBS_CharacterResources) do
     local entity = Ext.Entity.Get(entityId)
     Utils.NullifySpellSlots(entity)
   end
-  _P("Globals finished Syncing")
   Globals.SyncingSlots = false
 end

@@ -35,6 +35,7 @@ function Utils.TransferResource(entity, baseResource)
 end
 
 function Utils.IncrementStuntedSlots(entity, oldAmount, newAmount, level)
+  CLUtils.Info("Entering IncrementStuntedSlots", Globals.InfoOverride)
   Osi.RemoveBoosts(entity.Uuid.EntityUuid,
     "ActionResourceOverride(CL_StuntedSlot," .. oldAmount .. "," .. level .. ")", 1, "", "")
   entity:Replicate("BoostsContainer")
@@ -51,6 +52,7 @@ end
 --- @param level? number The Level at which you want the resource to be added. Defaults to 0.
 --- @param override? boolean True if ActionResourceOverride, false if ActionResource.
 function Utils.AddResourceBoosts(entity, name, amount, level, override)
+  CLUtils.Info("Entering AddResourceBoosts", Globals.InfoOverride)
   level = level or 0
   amount = amount or 1
   local boost = "ActionResource"
@@ -78,23 +80,10 @@ function Utils.ModifyStuntedSlotsBySpell(entity, spell, amount)
   end
 end
 
---- Set Action Resources based on ModVars when loading a session
---- @param entity userdata
---- @param resources table
-function Utils.SyncSlotValuesOnSession(entity, resources)
-  for resourceName, resourcesAtLevel in pairs(resources) do
-    for resourceLevel, resourceAmount in pairs(resourcesAtLevel) do
-      CLUtils.SetEntityResourceValue(
-        entity,
-        CLGlobals.ActionResources[resourceName],
-        { Amount = resourceAmount, MaxAmount = resourceAmount },
-        resourceLevel
-      )
-    end
-  end
-end
-
+--- Remove Spell Slots from entities that should have them on load
+--- @param entity userdata entity to remove from
 function Utils.NullifySpellSlots(entity)
+  CLUtils.Info("Entering NullifySpellSlots", Globals.InfoOverride)
   local slotTable = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)
   for _, slotObj in pairs(slotTable) do
     if slotObj.Name ~= "CL_StuntedSpellSlot" then

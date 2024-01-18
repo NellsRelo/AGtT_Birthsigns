@@ -1,5 +1,5 @@
 function Conditions.IsAtronachPlayer(entity)
-  CLUtils.Info("Entering IsAtronachPlayer")
+  CLUtils.Info("Entering IsAtronachPlayer", Globals.InfoOverride)
   local res = false
 
   if entity.Uuid and Osi.IsPlayer(entity.Uuid.EntityUuid) == 1 and
