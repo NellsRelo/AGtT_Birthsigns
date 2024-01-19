@@ -6,21 +6,6 @@ function Actions.OnResourceChanged(entity)
   CLUtils.Info("Entering OnResourceChanged", Globals.InfoOverride)
   if Conditions.IsAtronachPlayer(entity) then
     CLUtils.Info("Subscribed to Action Resources on entity " .. entity.Uuid.EntityUuid, Globals.InfoOverride)
-    local slotTable = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)
-    for _, slotObj in pairs(slotTable) do
-      if Conditions.IsResourceChanged(entity, slotObj) then
-        if slotObj.Name ~= "CL_StuntedSpellSlot" then
-          Utils.TransferResource(entity, slotObj)
-        elseif slotObj.Name ~= "CL_StuntedSpellSlot" then
-          -- TODO: Special Handling Here for setting ModVars when a Stunted Slot is used
-          Utils.SetValue(
-            entity.Uuid.EntityUuid,
-            "CL_StuntedSpellSlot",
-            slotObj.Level, "PrevAmount",
-            slotObj.Amount
-          )
-        end
-      end
-    end
+    Utils.CallForTransfer(entity, true, Conditions.IsResourceChanged)
   end
 end

@@ -19,15 +19,23 @@ function Utils.SyncModVars()
   vars.AGTTBS_CharacterResources = Globals.CharacterResources
 end
 
---- Wrapper function to register an Entity, Resource, and Resource Level
+--- Wrapper function to register an Entity to ModVars
+--- @param entityId string UUID of entity
+function Utils.RegisterEntity(entityId)
+  CLUtils.Info("Entering RegisterEntity", Globals.InfoOverride)
+  if not Globals.CharacterResources[entityId] then
+    Globals.CharacterResources[entityId] = {}
+  end
+end
+
+--- Wrapper function to register an Entity's' Resource, and Resource Level
 --- @param entityId string UUID of entity
 --- @param slotName string Name of Action Resource
 --- @param slotLevel number Level at which the Action Resource should be present
 function Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
   CLUtils.Info("Entering RegisterEntityBootstrap", Globals.InfoOverride)
-  if not Globals.CharacterResources[entityId] then
-    Globals.CharacterResources[entityId] = {}
-  end
+  Utils.RegisterEntity(entityId)
+
   if not Globals.CharacterResources[entityId][slotName] then
     Globals.CharacterResources[entityId][slotName] = {}
   end
@@ -42,7 +50,7 @@ end
 --- @param slotLevel number Level of Action Resource
 --- @param key string Name of Value Key - `Amount` or `PrevAmount`
 --- @param value number New Value to set
-function Utils.SetValue(entityId, slotName, slotLevel, key, value)
+function Utils.SetSlotValue(entityId, slotName, slotLevel, key, value)
   CLUtils.Info("Entering SetValue", Globals.InfoOverride)
   Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
 
@@ -57,7 +65,7 @@ end
 --- @param slotLevel number Level of Action Resource
 --- @param key string Name of Value Key - `Amount` or `PrevAmount`
 ---@return number
-function Utils.GetValue(entityId, slotName, slotLevel, key)
+function Utils.GetSlotValue(entityId, slotName, slotLevel, key)
   CLUtils.Info("Entering GetValue", Globals.InfoOverride)
   Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
 

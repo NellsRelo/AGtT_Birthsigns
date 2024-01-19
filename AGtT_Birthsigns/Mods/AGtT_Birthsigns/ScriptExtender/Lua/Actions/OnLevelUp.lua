@@ -4,7 +4,7 @@
 function Actions.OnLevelUp(entity)
   CLUtils.Info("Entering OnLevelUp", Globals.InfoOverride)
   if Conditions.IsAtronachPlayer(entity) then
-    local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity, "CL_StuntedSpellSlot", 1) or 0
+    local currentStuntedSlots = CLUtils.GetResourceAtLevel(entity.Uuid.EntityUuid, "CL_StuntedSpellSlot", 1) or 0
     Utils.IncrementStuntedSlots(entity, currentStuntedSlots, currentStuntedSlots + 1, 1)
   end
 end

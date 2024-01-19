@@ -67,7 +67,7 @@
         <node id="Background">
           <attribute id="Description" type="TranslatedString" handle="h376e999eg0cb9g490egb71bge2e903bc17b8" version="6"/>
           <attribute id="DisplayName" type="TranslatedString" handle="h416aa5ccg594cg4a06g89d7g8985400ab5e1" version="1"/>
-          <attribute id="Passives" type="LSString" value="AGTT_BS_Shadow"/>
+          <attribute id="Passives" type="LSString" value="AGTT_BS_Shadow;AGTT_BS_Moonshadow"/>
           <attribute id="UUID" type="guid" value="f0c8d1c1-352e-4445-9e31-1609805e1f61"/>
         </node>
         <node id="Background">

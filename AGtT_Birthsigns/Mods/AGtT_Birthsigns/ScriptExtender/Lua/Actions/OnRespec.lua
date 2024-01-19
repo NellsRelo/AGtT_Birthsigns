@@ -8,5 +8,6 @@ function Actions.OnRespec(character)
   if Conditions.IsAtronachPlayer(entity) then
     CLUtils.Info("Removing Stunted Slots from Player", Globals.InfoOverride)
     Utils.RemoveStuntedSlots(entity)
+    Utils.CallForTransfer(entity)
   end
 end
