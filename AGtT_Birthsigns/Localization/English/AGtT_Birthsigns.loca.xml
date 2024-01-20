@@ -57,9 +57,9 @@
     Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_TheLover"&gt;Mooncalf&lt;/LSTag&gt;
     Powers: &lt;LSTag Type="Spell" Tooltip="AGTT_BS_LoversEmbrace"&gt;Lover's Embrace&lt;/LSTag&gt;</content>
   <content contentuid="h603ec453gaa81g4944g831egc8b2ef411c28" version="1">Mooncalf</content>
-  <content contentuid="h56d84ed2g45ebg48b4gbce8g8ed1984dcdc4" version="1">You have &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in &lt;LSTag Tooltip="Performance"&gt;Performance&lt;/LSTag&gt;, &lt;LSTag Tooltip="Persuasion"&gt;Persuasion&lt;/LSTag&gt;, and &lt;LSTag Tooltip="Athletics"&gt;Athletics&lt;/LSTag&gt;.</content>
+  <content contentuid="h56d84ed2g45ebg48b4gbce8g8ed1984dcdc4" version="1">You have &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in &lt;LSTag Tooltip="Performance"&gt;Performance&lt;/LSTag&gt;.</content>
   <content contentuid="hc486d6a4gc7b4g4a12g817cge126b7f602c7" version="1">Moonshadow</content>
-  <content contentuid="h9b656c09g4549g47b8g864eg2c2bdff24020" version="1">You have &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in &lt;LSTag Tooltip="Stealth"&gt;Stealth&lt;/LSTag&gt;, and may become &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; when Heavily or Lightly Obscured.</content>
+  <content contentuid="h9b656c09g4549g47b8g864eg2c2bdff24020" version="1">You have &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in &lt;LSTag Tooltip="Stealth"&gt;Stealth&lt;/LSTag&gt;, and may become &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; when Sneaking and Lightly Obscured, or when Heavily Obscured.</content>
   <content contentuid="hb9e8a81dgb1ddg4097g87f4gb3694495b430" version="1">Warden</content>
   <content contentuid="hf04af7fcg44e4g4e23g84b1gf12db2df615c" version="1">Those born under the sign of the Tower have &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in &lt;LSTag Tooltip="SleightOfHand"&gt;Sleight Of Hand&lt;/LSTag&gt;.</content>
   <content contentuid="he571c6bbg0404g4323gb2efgf0256af86ba4" version="1">Blood of the North</content>
@@ -68,7 +68,7 @@
   <content contentuid="hea6221fcg24c8g4546g8fc4g406869ee4415" version="1">Mara's Gift</content>
   <content contentuid="h4d852aadgf981g4f2fgbf77g67d4cf7bb599" version="1">Once per short or long rest, you may restore an amount of &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt; equal to [1].</content>
   <content contentuid="h2a1773b9g0df2g4b5ag8527gb2be622ac4ce" version="1">Blessed Word</content>
-  <content contentuid="h18cc697bga294g4c89ga6f4gb40cfff89f48" version="1">All &lt;LSTag Type="Passive" Tooltip="Undead"&gt;undead&lt;/LSTag&gt; within a [1] sphere within range are &lt;LSTag Type="Status" Tooltip="TURNED"&gt;Turned&lt;/LSTag&gt;.</content>
+  <content contentuid="h18cc697bga294g4c89ga6f4gb40cfff89f48" version="1">All &lt;LSTag Type="Passive" Tooltip="Undead"&gt;undead&lt;/LSTag&gt; in a [2] sphere within [1] are &lt;LSTag Type="Status" Tooltip="TURNED"&gt;Turned&lt;/LSTag&gt;.</content>
   <content contentuid="h5feb5228g5490g47d5g9de2gbf60bf7a8889" version="1">Lover's Embrace</content>
   <content contentuid="h6572523bg0c66g4c18gabdbg5eb53389707c" version="1">You reach out to embrace a creature. The target must make a Willpower &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; against your &lt;LSTag Tooltip="DifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt;.</content>
   <content contentuid="h416aa5ccg594cg4a06g89d7g8985400ab5e1" version="1">The Shadow</content>

@@ -3,7 +3,7 @@ new entry "AGTT_BS_TheLover"
 type "PassiveData"
 data "DisplayName" "h603ec453gaa81g4944g831egc8b2ef411c28"
 data "Description" "h56d84ed2g45ebg48b4gbce8g8ed1984dcdc4"
-data "Boosts" "ProficiencyBonus(Skill, Performance);ProficiencyBonus(Skill, Persuasion);ProficiencyBonus(Skill, Athletics);UnlockSpell(AGTT_BS_LoversEmbrace)"
+data "Boosts" "ProficiencyBonus(Skill, Performance);UnlockSpell(AGTT_BS_LoversEmbrace)"
 
 new entry "AGTT_BS_LoversEmbrace"
 type "SpellData"

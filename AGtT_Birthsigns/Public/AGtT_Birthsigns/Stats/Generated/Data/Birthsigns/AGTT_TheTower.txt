@@ -5,7 +5,6 @@ data "DisplayName" "hb9e8a81dgb1ddg4097g87f4gb3694495b430"
 data "Description" "hf04af7fcg44e4g4e23g84b1gf12db2df615c"
 data "Boosts" "ProficiencyBonus(Skill, SleightOfHand);UnlockSpell(AGTT_BS_TowerKey)"
 
-// TODO: Needs to be locked only by non-magical means
 new entry "AGTT_BS_TowerKey"
 type "SpellData"
 using "Target_Knock"

@@ -32,7 +32,7 @@
           <attribute id="Description" type="TranslatedString" handle="hb31feffeg4e1ag4103gbdd6g9150b887ccfa" version="6"/>
           <attribute id="DisplayName" type="TranslatedString" handle="h0f88b1fdgac95g459bgbbaeg2de069cb2487" version="1"/>
           <attribute id="Passives" type="LSString" value="AGTT_BS_Steed"/>
-          <attribute id="UUID" type="guid" value="dbd2ee1a-a3b8-47c8-aa7b-b7cffd58829e"/>
+          <attribute id="UUID" type="guid" value="dbd2ee1a-a3b8-47c8-aa7b-b7cffd58829e"/>          
         </node>
         <node id="Background">
           <attribute id="Description" type="TranslatedString" handle="h535f1564g022ag4aedgba1eg0ea3b95f11e1" version="6"/>
@@ -43,7 +43,7 @@
         <node id="Background">
           <attribute id="Description" type="TranslatedString" handle="he2abacb3gaefeg429agba51gc5960d48e096" version="6"/>
           <attribute id="DisplayName" type="TranslatedString" handle="h78795127g018bg4dfag80c6g27bd2aec6f90" version="1"/>
-          <attribute id="Passives" type="LSString" value="AGTT_BS_Apprentice"/>
+          <attribute id="Passives" type="LSString" value="AGTT_BS_Apprentice;AGTT_BS_Apprentice_SpellBonus;UnlockedSpellSlotLevel2"/>
           <attribute id="UUID" type="guid" value="ecb6ee29-5805-474b-9eb7-1d5ee7b89eba"/>
         </node>
         <node id="Background">

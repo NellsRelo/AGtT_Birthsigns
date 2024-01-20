@@ -1,4 +1,4 @@
-// Gain 1.5m Movement
+// Gain 3m Movement, immune to Lethargy
 new entry "AGTT_BS_Steed"
 type "PassiveData"
 data "Boosts" "ActionResource(Movement, 3, 0)"

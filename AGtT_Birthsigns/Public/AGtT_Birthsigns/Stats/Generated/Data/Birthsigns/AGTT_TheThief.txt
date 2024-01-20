@@ -1,4 +1,4 @@
-// 
+//  Sneak Attack Charge + Unlock Sneak Attack if not a Rogue
 new entry "AGTT_BS_Thief"
 type "PassiveData"
 data "Boosts" "RestoreResource(SneakAttack_Charge,1);UnlockSpell(Target_SneakAttack);UnlockSpell(Projectile_SneakAttack);"
