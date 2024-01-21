@@ -10,7 +10,7 @@
 
     Powers: &lt;LSTag Type="Spell" Tooltip="AGTT_Shout_Fay"&gt;Fay&lt;/LSTag&gt;</content>
   <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="1">Fay</content>
-  <content contentuid="h6fa8d5bdg0ac7g498eg8ef1gf82584961700" version="1">Those born under the sign of the Mage have the power to restore &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slots&lt;/LSTag&gt;.</content>
+  <content contentuid="h6fa8d5bdg0ac7g498eg8ef1gf82584961700" version="1">Those born under the sign of the Mage may add their Intelligence &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; to their Spell Attack Damage once per short rest.</content>
   <content contentuid="hc62a3b00g5b04g4355gaaefgc4a0dfab32b8" version="1">Those born under the sign of the Mage have the power to restore a Level [1] &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.</content>
   <content contentuid="h326ed7c5g7345g4081g8fe5ge8a80cafa651" version="1">Fay (Level 1)</content>
   <content contentuid="h0afcb26cgb8e9g411agb2d6g8ce18e208330" version="1">Fay (Level 2)</content>

@@ -1,14 +1,10 @@
-// When casting a 
+// Toggleable passive to add your Spellcasting Ability Modifier to Spell Damage once per short rest
 new entry "AGTT_BS_Mage"
 type "PassiveData"
 data "DisplayName" "h4952aaacge03cg423cga6b8g75374913d7cc"
 data "Description" "h6fa8d5bdg0ac7g498eg8ef1gf82584961700"
 data "Conditions" "HasSpellFlag(SpellFlags.Spell) and not IsCantrip()"
 data "EnabledContext" "OnCastResolved;OnShortRest"
-data "ToggleOnFunctors" "RestoreResource(SELF,SpellSlot,1,1)"
+data "ToggleOnFunctors" "IF(IsSpell() and IsSpellAttack()):DamageBonus(max(1,SpellCastingAbilityModifier))"
 data "Properties" "IsToggled;ToggledDefaultAddToHotbar;OncePerShortRest"
 data "ToggleOffContext" "OnDamage"
-
-new entry "AGTT_BS_FAY_DUMMY"
-type "StatusData"
-data "Type" "BOOST"
