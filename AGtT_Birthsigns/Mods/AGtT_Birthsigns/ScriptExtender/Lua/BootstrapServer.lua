@@ -35,6 +35,10 @@ Ext.Events.SessionLoading:Subscribe(Actions.OnSessionLoading)
 Ext.Events.SessionLoaded:Subscribe(Actions.OnSessionLoaded)
 Ext.Events.ResetCompleted:Subscribe(Actions.OnSessionLoaded)
 
+Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function (_, _)
+  Actions.OnLevelGameplayStarted()
+end)
+
 -- Shadow
 
 -- Apply Invisibility when Obscured

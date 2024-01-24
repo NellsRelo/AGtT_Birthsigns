@@ -43,5 +43,19 @@ Globals.ElfbornSpells = {
   CharmingTouch = "CL_Target_CharmingTouch",
   DemoralizingTouch = "CL_Target_DemoralizingTouch",
   FrenzyingTouch = "CL_Target_FrenzyingTouch",
-  HeroicTouch = "CL_Target_HeroicTouch"
+  HeroicTouch = "CL_Target_HeroicTouch",
+  Glamour = "CL_Target_Glamour"
+}
+
+Globals.ElfbornSpellPickerSpells = {
+  FireShield = "AGTT_BS_ElfbornSpellpicker_FireShield",
+  FrostBarrier = "AGTT_BS_ElfbornSpellpicker_FrostBarrier",
+  LightningShield = "AGTT_BS_ElfbornSpellpicker_LightningShield",
+  SpellStrike = "AGTT_BS_ElfbornSpellpicker_SpellStrike",
+  AlterWeapon = "AGTT_BS_ElfbornSpellpicker_AlterWeapon",
+  Glamour = "AGTT_BS_ElfbornSpellpicker_Glamour",
+  CharmingTouch = "AGTT_BS_ElfbornSpellpicker_CharmingTouch",
+  DemoralizingTouch = "AGTT_BS_ElfbornSpellpicker_DemoralizingTouch",
+  FrenzyingTouch = "AGTT_BS_ElfbornSpellpicker_FrenzyingTouch",
+  HeroicTouch = "AGTT_BS_ElfbornSpellpicker_HeroicTouch"
 }

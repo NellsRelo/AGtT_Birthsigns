@@ -1,6 +1,6 @@
 function Conditions.DidCastSpellPicker(spellId)
   local res = false
-  if Globals.SpellPickers.Apprentice == spellId then
+  if CLUtils.IsInTable(Globals.ElfbornSpellPickerSpells, spellId) then
     res = true
   end
 

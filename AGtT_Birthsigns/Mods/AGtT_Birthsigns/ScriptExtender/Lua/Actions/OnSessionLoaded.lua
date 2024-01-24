@@ -12,8 +12,8 @@ function Actions.OnSessionLoaded()
       Utils.NullifySpellSlots(entity)
     end
 
-    if Conditions.IsApprenticePlayer(entity) and not Conditions.SpellPicked(entity, Globals.SpellPickers.Apprentice) then
-      
+    if Conditions.IsApprenticePlayer(entity) and not Conditions.IsSpellPicked(entityId) then
+      Utils.HandleAddSpellPicker(entityId)
     end
   end
   Globals.SyncingSlots = false
