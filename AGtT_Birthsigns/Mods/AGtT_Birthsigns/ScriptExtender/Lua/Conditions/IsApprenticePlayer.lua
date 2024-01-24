@@ -1,4 +1,4 @@
-function Conditions.IsAtronachPlayer(entity)
+function Conditions.IsApprenticePlayer(entity)
   CLUtils.Info("Entering IsAtronachPlayer", Globals.InfoOverride)
   if type(entity) == "string" then
     entity = Ext.Entity.Get(entity)
@@ -7,7 +7,7 @@ function Conditions.IsAtronachPlayer(entity)
   local res = false
 
   if entity.Uuid and Osi.IsPlayer(entity.Uuid.EntityUuid) == 1 and
-    CLUtils.EntityHasPassive(entity, Globals.AtronachPassive) then
+    CLUtils.EntityHasPassive(entity, Globals.ApprenticePassive) then
     res = true
   end
 

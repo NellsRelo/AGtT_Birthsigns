@@ -10,4 +10,9 @@ function Actions.OnRespec(character)
     Utils.RemoveStuntedSlots(entity)
     Utils.CallForTransfer(entity)
   end
+
+  if Conditions.IsApprenticePlayer(character) then
+    Utils.HandleRemoveElfbornSpells(character)
+    Utils.HandleAddSpellPicker(character)
+  end
 end

@@ -8,7 +8,14 @@ function Actions.OnSessionLoaded()
 
   for entityId, _ in pairs(vars.AGTTBS_CharacterResources) do
     local entity = Ext.Entity.Get(entityId)
-    Utils.NullifySpellSlots(entity)
+    if Conditions.IsAtronachPlayer(entity) then
+      Utils.NullifySpellSlots(entity)
+    end
+
+    if Conditions.IsApprenticePlayer(entity) and not Conditions.SpellPicked(entity, Globals.SpellPickers.Apprentice) then
+      
+    end
   end
   Globals.SyncingSlots = false
+
 end

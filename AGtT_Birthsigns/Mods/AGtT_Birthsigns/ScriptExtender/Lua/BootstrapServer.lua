@@ -2,9 +2,15 @@ Ext.Require("InitGlobals.lua")
 Ext.Require("Conditions/_init.lua")
 Ext.Require("Actions/_init.lua")
 
+-- Apprentice
+
+Ext.Osiris.RegisterListener("CastedSpell", 5, "after", function (caster, spell, _, _, _)
+  Actions.OnCast(caster, spell)
+end)
+
 -- Atronach
 
---- Damaged by Spell = increase Stunted Slots at Spell Level X. TODO: Confirm this bypasses Override Boost
+--- Damaged by Spell = increase Stunted Slots at Spell Level X.
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function (_, target, spell, _, _, _)
   Actions.OnHostileSpell(target, spell)
 end)
@@ -14,7 +20,7 @@ Ext.Osiris.RegisterListener("LeveledUp", 1, "after", function (character)
   Actions.OnLevelUp(character)
 end)
 
---- Listener for Respec to remove Atronach Slots
+--- Listener for Respec to remove Atronach Slots. TODO: This doesn't work as expected
 Ext.Osiris.RegisterListener("RespecCompleted", 1, "after", function (character)
   Actions.OnRespec(character)
 end)

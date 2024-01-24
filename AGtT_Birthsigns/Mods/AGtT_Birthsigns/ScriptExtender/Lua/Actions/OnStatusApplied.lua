@@ -7,4 +7,8 @@ function Actions.OnStatusApplied(entityId, status)
   if Conditions.IsStatusMoonshadow(status) then
     Utils.HandleShadowToggle(entityId)
   end
+
+  if Conditions.IsApprenticePlayer(status) then
+    Utils.HandleApprenticeStatus(entityId, status)
+  end
 end
