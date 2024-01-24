@@ -1,5 +1,5 @@
 function Actions.OnLevelGameplayStarted()
-  CLUtils.Info("Entering OnLevelGameplayStarted", true)
+  CLUtils.Info("Entering OnLevelGameplayStarted", Globals.InfoOverride)
 
   local party = Osi.DB_PartyMembers:Get(nil)
 

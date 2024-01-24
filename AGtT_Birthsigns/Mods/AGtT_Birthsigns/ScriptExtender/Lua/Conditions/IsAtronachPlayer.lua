@@ -1,9 +1,6 @@
 function Conditions.IsAtronachPlayer(entity)
   CLUtils.Info("Entering IsAtronachPlayer", Globals.InfoOverride)
-  if type(entity) == "string" then
-    entity = Ext.Entity.Get(entity)
-  end
-
+  entity = Utils.FleshCharacter(entity)
   local res = false
 
   if entity.Uuid and Osi.IsPlayer(entity.Uuid.EntityUuid) == 1 and

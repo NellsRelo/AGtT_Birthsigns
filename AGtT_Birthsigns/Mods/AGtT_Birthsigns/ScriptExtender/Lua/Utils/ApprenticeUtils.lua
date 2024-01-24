@@ -1,6 +1,6 @@
 function Utils.HandleRemoveSpellPicker(character, spell)
+  CLUtils.Info("Entering HandleRemoveSpellPicker", Globals.InfoOverride)
   Osi.RemoveSpell(character, Globals.SpellPickers.Apprentice)
-  _D(character)
   Utils.AddSpellBoost(
     character,
     Globals.ElfbornSpells[CLUtils.GetKeyFromvalue(Globals.ElfbornSpellPickerSpells, spell)]
@@ -9,6 +9,7 @@ function Utils.HandleRemoveSpellPicker(character, spell)
 end
 
 function Utils.AddSpellBoost(characterId, spell)
+  CLUtils.Info("Entering AddSpellBoost", Globals.InfoOverride)
   Osi.AddBoosts(
     characterId,
     "UnlockSpell("
@@ -20,6 +21,7 @@ function Utils.AddSpellBoost(characterId, spell)
 end
 
 function Utils.RemoveSpellBoost(characterId, spell)
+  CLUtils.Info("Entering RemoveSpellBoost", Globals.InfoOverride)
   Osi.RemoveBoosts(
     characterId,
     "UnlockSpell("
@@ -32,11 +34,13 @@ function Utils.RemoveSpellBoost(characterId, spell)
 end
 
 function Utils.HandleAddSpellPicker(character)
+  CLUtils.Info("Entering HandleAddSpellPicker", Globals.InfoOverride)
   Osi.AddSpell(character, Globals.SpellPickers.Apprentice, 0, 1)
   Utils.HandleRegisterSpellPickerState(character, false)
 end
 
 function Utils.HandleRemoveElfbornSpells(character)
+  CLUtils.Info("Entering HandleRemoveElfbornSpells", Globals.InfoOverride)
   for _, spell in pairs(Globals.ElfbornSpells) do
     if Osi.HasSpell(character, spell) then
       Utils.RemoveSpellBoost(character, spell)
@@ -45,6 +49,7 @@ function Utils.HandleRemoveElfbornSpells(character)
 end
 
 function Utils.FleshCharacter(character)
+  CLUtils.Info("Entering OnSessionLoaded", Globals.InfoOverride)
   if type(character) == "string" then
     character = Ext.Entity.Get(character)
   end
@@ -53,6 +58,7 @@ function Utils.FleshCharacter(character)
 end
 
 function Utils.HandleRegisterSpellPickerState(entityId, isPicked)
+  CLUtils.Info("Entering OnSessionLoaded", Globals.InfoOverride)
   Utils.RegisterEntity(entityId)
 
   Globals.CharacterResources[entityId].SpellPicked = isPicked
