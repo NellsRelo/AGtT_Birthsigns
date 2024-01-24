@@ -119,16 +119,12 @@ end
 
 function Utils.CallForTransfer(entity, handleStuntedSlots, condFn)
   CLUtils.Info("Entering CallForTransfer", Globals.InfoOverride)
-  _P("Calling for Transfer")
   handleStuntedSlots = handleStuntedSlots or false
   condFn = condFn or function (_, _) return true end
   local slotTable = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)
   for _, slotObj in pairs(slotTable) do
     if condFn(entity, slotObj) then
-      _P("Condition True")
       if slotObj.Name ~= "CL_StuntedSpellSlot" then
-        _P("Doing Transfer")
-        _D(slotObj)
         Utils.TransferResource(entity, slotObj)
       elseif handleStuntedSlots and slotObj.Name ~= "CL_StuntedSpellSlot" then
         -- TODO: Special Handling Here for setting ModVars when a Stunted Slot is used

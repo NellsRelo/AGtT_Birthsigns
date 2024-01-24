@@ -1,6 +1,6 @@
 --- Check if Entity who has levelled up is a valid Atronach Player, then increment
 --- their Level 1 Stunted Spell Slots by 1.
---- @param entity entity who has just levelled up.
+--- @param entity userdata who has just levelled up.
 function Actions.OnLevelUp(entity)
   CLUtils.Info("Entering OnLevelUp", Globals.InfoOverride)
   entity = Utils.FleshCharacter(entity)

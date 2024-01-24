@@ -9,7 +9,6 @@ function Actions.OnSessionLoaded()
   for entityId, _ in pairs(vars.AGTTBS_CharacterResources) do
     local entity = Ext.Entity.Get(entityId)
     if Conditions.IsAtronachPlayer(entity) then
-      _D("Player is Atronach, nullifying Spell Slots...")
       Utils.NullifySpellSlots(entity)
     end
 
@@ -18,5 +17,4 @@ function Actions.OnSessionLoaded()
     end
   end
   Globals.SyncingSlots = false
-
 end

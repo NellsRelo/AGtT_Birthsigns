@@ -3,8 +3,7 @@ function Conditions.IsApprenticePlayer(entity)
   entity = Utils.FleshCharacter(entity)
   local res = false
 
-  if entity.Uuid and Osi.IsPlayer(entity.Uuid.EntityUuid) == 1 and
-    CLUtils.EntityHasPassive(entity, Globals.ApprenticePassive) then
+  if entity.Uuid and CLUtils.EntityHasPassive(entity, Globals.ApprenticePassive) then
     res = true
   end
 

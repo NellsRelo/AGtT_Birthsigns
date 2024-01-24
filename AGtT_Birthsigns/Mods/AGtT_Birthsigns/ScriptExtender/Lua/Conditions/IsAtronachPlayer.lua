@@ -3,8 +3,7 @@ function Conditions.IsAtronachPlayer(entity)
   entity = Utils.FleshCharacter(entity)
   local res = false
 
-  if entity.Uuid and Osi.IsPlayer(entity.Uuid.EntityUuid) == 1 and
-    CLUtils.EntityHasPassive(entity, Globals.AtronachPassive) then
+  if entity.Uuid and CLUtils.EntityHasPassive(entity, Globals.AtronachPassive) then
     res = true
   end
 
