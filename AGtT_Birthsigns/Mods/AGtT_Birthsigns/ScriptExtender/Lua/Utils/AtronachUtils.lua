@@ -138,3 +138,20 @@ function Utils.CallForTransfer(entity, handleStuntedSlots, condFn)
     end
   end
 end
+
+function Utils.SetStuntedSlotsFromModvars(entity)
+  CLUtils.Info("Entering CallForTransfer", Globals.InfoOverride)
+  _D(entity.Uuid)
+  local slotTable = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)
+  for _, slotObj in pairs(slotTable) do
+    local storedPreviousAmount = Utils.GetSlotValue(entity.Uuid.EntityUuid, slotObj.Name,
+      slotObj.Level, "PrevAmount") or 0
+    local storedCurrentAmount = Utils.GetSlotValue(entity.Uuid.EntityUuid, slotObj.Name, slotObj.Level, "Amount") or 0
+    
+    if slotObj.Name == "CL_StuntedSpellSlot" then
+      if slotObj.Amount ~= storedCurrentAmount then
+        Utils.IncrementStuntedSlots(entity, storedPreviousAmount, storedCurrentAmount, slotObj.Level)
+      end
+    end
+  end
+end

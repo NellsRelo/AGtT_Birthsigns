@@ -23,8 +23,11 @@ end
 --- @param entityId string UUID of entity
 function Utils.RegisterEntity(entityId)
   CLUtils.Info("Entering RegisterEntity", Globals.InfoOverride)
-  if not Globals.CharacterResources[entityId] then
-    Globals.CharacterResources[entityId] = {}
+  if entityId then
+    entityId = string.sub(entityId, -36)
+    if not Globals.CharacterResources[entityId] then
+      Globals.CharacterResources[entityId] = {}
+    end
   end
 end
 
@@ -34,13 +37,15 @@ end
 --- @param slotLevel number Level at which the Action Resource should be present
 function Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
   CLUtils.Info("Entering RegisterEntityBootstrap", Globals.InfoOverride)
+  entityId = string.sub(entityId, -36)
   Utils.RegisterEntity(entityId)
-
-  if not Globals.CharacterResources[entityId][slotName] then
-    Globals.CharacterResources[entityId][slotName] = {}
-  end
-  if not Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] then
-    Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = {}
+  if entityId then
+    if not Globals.CharacterResources[entityId][slotName] then
+      Globals.CharacterResources[entityId][slotName] = {}
+    end
+    if not Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] then
+      Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)] = {}
+    end
   end
 end
 
@@ -52,6 +57,7 @@ end
 --- @param value number New Value to set
 function Utils.SetSlotValue(entityId, slotName, slotLevel, key, value)
   CLUtils.Info("Entering SetValue", Globals.InfoOverride)
+  entityId = string.sub(entityId, -36)
   Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
 
   Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)][key] = value
@@ -67,6 +73,7 @@ end
 ---@return number
 function Utils.GetSlotValue(entityId, slotName, slotLevel, key)
   CLUtils.Info("Entering GetValue", Globals.InfoOverride)
+  entityId = string.sub(entityId, -36)
   Utils.RegisterEntityBootstrap(entityId, slotName, slotLevel)
 
   if not Globals.CharacterResources[entityId][slotName]['L' .. tostring(slotLevel)][key] then

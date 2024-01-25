@@ -7,12 +7,14 @@ function Actions.OnLevelGameplayStarted()
     Utils.RegisterEntity(character[1])
     local entity = Utils.FleshCharacter(character[1])
     if Conditions.IsAtronachPlayer(entity) then
-      Utils.CallForTransfer(entity)
-      -- Utils.NullifySpellSlots(entity)
+      Utils.NullifySpellSlots(entity)
+      Utils.SetStuntedSlotsFromModvars(entity)
     end
 
     if Conditions.IsApprenticePlayer(entity) and not Conditions.IsSpellPicked(character[1]) then
       Utils.HandleAddSpellPicker(character[1])
     end
+
+    Globals.SyncingSlots = false
   end
 end
