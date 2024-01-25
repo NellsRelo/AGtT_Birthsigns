@@ -35,8 +35,9 @@ end
 
 function Utils.HandleAddSpellPicker(character)
   CLUtils.Info("Entering HandleAddSpellPicker", Globals.InfoOverride)
-  Osi.AddSpell(character, Globals.SpellPickers.Apprentice, 0, 1)
-  Utils.HandleRegisterSpellPickerState(character, false)
+  local entityId = string.sub(character, -36)
+  Osi.AddSpell(entityId, Globals.SpellPickers.Apprentice, 0, 1)
+  Utils.HandleRegisterSpellPickerState(entityId, false)
 end
 
 function Utils.HandleRemoveElfbornSpells(character)
@@ -59,6 +60,7 @@ end
 
 function Utils.HandleRegisterSpellPickerState(entityId, isPicked)
   CLUtils.Info("Entering OnSessionLoaded", Globals.InfoOverride)
+  entityId = string.sub(entityId, -36)
   Utils.RegisterEntity(entityId)
 
   Globals.CharacterResources[entityId].SpellPicked = isPicked

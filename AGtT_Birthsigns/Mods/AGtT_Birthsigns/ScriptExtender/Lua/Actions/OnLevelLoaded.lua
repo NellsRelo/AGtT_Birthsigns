@@ -4,15 +4,16 @@ function Actions.OnLevelGameplayStarted()
   local party = Osi.DB_PartyMembers:Get(nil)
 
   for _, character in pairs(party) do
-    Utils.RegisterEntity(character[1])
-    local entity = Utils.FleshCharacter(character[1])
+    local entityId = string.sub(character[1], -36)
+    Utils.RegisterEntity(entityId)
+    local entity = Utils.FleshCharacter(entityId)
     if Conditions.IsAtronachPlayer(entity) then
       Utils.NullifySpellSlots(entity)
       Utils.SetStuntedSlotsFromModvars(entity)
     end
 
-    if Conditions.IsApprenticePlayer(entity) and not Conditions.IsSpellPicked(character[1]) then
-      Utils.HandleAddSpellPicker(character[1])
+    if Conditions.IsApprenticePlayer(entity) and not Conditions.IsSpellPicked(entityId) then
+      Utils.HandleAddSpellPicker(entityId)
     end
 
     Globals.SyncingSlots = false

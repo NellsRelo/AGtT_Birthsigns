@@ -26,7 +26,9 @@ function Utils.RegisterEntity(entityId)
   if entityId then
     entityId = string.sub(entityId, -36)
     if not Globals.CharacterResources[entityId] then
-      Globals.CharacterResources[entityId] = {}
+      Globals.CharacterResources[entityId] = {
+        SpellPicked = false
+      }
     end
   end
 end
