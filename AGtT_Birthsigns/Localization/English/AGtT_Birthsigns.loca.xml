@@ -46,6 +46,8 @@
   <content contentuid="he2abacb3gaefeg429agba51gc5960d48e096" version="1">The Apprentice's Season is Sun's Height. Those born under the sign of the Apprentice have a special affinity for magic of all kinds, but are equally as vulnerable to it.
 
     Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_Apprentice"&gt;Elfborn&lt;/LSTag&gt;</content>
+  <content contentuid="hf1f4b138gb9a7g44c3g9da9g4082e6a09eb0" version="1">Elfborn Spell Choice</content>
+  <content contentuid="h77694445g01f5g4c3dga189g3e2814a5e528" version="1">You are granted one of the following spells of your choice.</content>
   <content contentuid="h3b87f330g49e9g48ffgb735g4ecc81ab7474" version="1">The Ritual</content>
   <content contentuid="hd20017c6gf7a5g4ff4ga80ega91debb9cb44" version="1">The Ritual is one of the Mage's Charges and its Season is Morning Star. Those born under this sign have a variety of abilities depending on the aspects of the moons and the Divines.
 
@@ -89,8 +91,8 @@
 
     Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_EverRoam_Passive"&gt;Ever-Roaming&lt;/LSTag&gt;
     Powers: &lt;LSTag Type="Spell" Tooltip="AGTT_BS_StarCurse"&gt;Star-Curse&lt;/LSTag&gt;</content>
-    <content contentuid="h19a1234fg4650g4ad1gb56fgeb5b79d98f43" version="1">Ever-Roaming</content>
-    <content contentuid="h00fa8471gcb71g4bdcg81e1g5d99b94e1398" version="1">Gain an additional Bonus Action.</content>
+  <content contentuid="h19a1234fg4650g4ad1gb56fgeb5b79d98f43" version="1">Ever-Roaming</content>
+  <content contentuid="h00fa8471gcb71g4bdcg81e1g5d99b94e1398" version="1">Gain an additional Bonus Action.</content>
   <content contentuid="hb1151358gf7adg4b09gadfbg6b4aba6468bd" version="1">Star-Curse</content>
   <content contentuid="hc378f8c6gbb8eg4289ga863g8aaf9ef1c963" version="1">Once per long rest, you can inflict &lt;LSTag Type="Status" Tooltip="POISONED"&gt;Poisoned&lt;/LSTag&gt; on a creature that you touch, causing them to take [1], then [2] per turn for the duration of the power.</content>
   <content contentuid="h0aebf60cg4f9eg4fedgb4e5g6d9f648e7c05" version="1">In addition, you take [1] at the beginning of each turn for the duration of the power.</content>
