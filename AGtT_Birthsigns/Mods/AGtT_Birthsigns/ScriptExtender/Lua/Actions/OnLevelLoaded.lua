@@ -12,8 +12,12 @@ function Actions.OnLevelGameplayStarted()
       Utils.SetStuntedSlotsFromModvars(entity)
     end
 
-    if Conditions.IsApprenticePlayer(entity) and not Conditions.IsSpellPicked(entityId) then
-      Utils.HandleAddSpellPicker(entityId)
+    if Conditions.IsApprenticePlayer(entity) then
+      if Conditions.IsSpellPicked(entityId) then
+        Utils.AddSpellBoost(entityId, Globals.CharacterResources[entityId].ApprenticeSpell)
+      else
+        Utils.HandleAddSpellPicker(entityId)
+      end
     end
 
     Globals.SyncingSlots = false

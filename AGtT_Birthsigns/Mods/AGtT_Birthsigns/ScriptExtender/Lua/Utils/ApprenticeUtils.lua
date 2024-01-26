@@ -18,6 +18,8 @@ function Utils.AddSpellBoost(characterId, spell)
     "",
     ""
   )
+  Utils.RegisterEntity(characterId)
+  Globals.CharacterResources[characterId].ApprenticeSpell = spell
 end
 
 function Utils.RemoveSpellBoost(characterId, spell)
@@ -31,6 +33,8 @@ function Utils.RemoveSpellBoost(characterId, spell)
     "",
     ""
   )
+
+  Globals.CharacterResources[characterId].ApprenticeSpell = nil
 end
 
 function Utils.HandleAddSpellPicker(character)
@@ -64,4 +68,5 @@ function Utils.HandleRegisterSpellPickerState(entityId, isPicked)
   Utils.RegisterEntity(entityId)
 
   Globals.CharacterResources[entityId].SpellPicked = isPicked
+  Utils.SyncModVars()
 end

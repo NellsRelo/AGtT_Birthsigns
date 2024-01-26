@@ -23,7 +23,7 @@
     <node id="root">
       <children>
         <node id="IconUV">
-          <attribute id="MapKey" type="FixedString" value="AGTT_BS_Icons_Apprentice_SpellPicker"/>
+          <attribute id="MapKey" type="FixedString" value="AGTT_BS_Apprentice_SpellPicker"/>
           <attribute id="U1" type="float" value="0.25"/>
           <attribute id="U2" type="float" value="0.5"/>
           <attribute id="V1" type="float" value="0.0"/>

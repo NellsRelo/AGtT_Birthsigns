@@ -8,7 +8,7 @@ data "Boosts" "ActionResource(SpellSlot,1,2);Resistance(Slashing, VulnerableToMa
 new entry "AGTT_BS_ElfbornSpellpicker"
 type "SpellData"
 data "SpellType" "Shout"
-data "Icon" "AGTT_BS_Icons_Apprentice_SpellPicker"
+data "Icon" "AGTT_BS_Apprentice_SpellPicker"
 data "DisplayName" "hf1f4b138gb9a7g44c3g9da9g4082e6a09eb0"
 data "Description" "h77694445g01f5g4c3dga189g3e2814a5e528"
 data "ContainerSpells" "AGTT_BS_ElfbornSpellpicker_FireShield;AGTT_BS_ElfbornSpellpicker_FrostBarrier;AGTT_BS_ElfbornSpellpicker_LightningShield;AGTT_BS_ElfbornSpellpicker_SpellStrike;AGTT_BS_ElfbornSpellpicker_AlterWeapon;AGTT_BS_ElfbornSpellpicker_Glamour;AGTT_BS_ElfbornSpellpicker_CharmingTouch;AGTT_BS_ElfbornSpellpicker_DemoralizingTouch;AGTT_BS_ElfbornSpellpicker_FrenzyingTouch;AGTT_BS_ElfbornSpellpicker_HeroicTouch"
