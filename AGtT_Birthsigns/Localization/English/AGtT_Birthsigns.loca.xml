@@ -8,9 +8,9 @@
   <content contentuid="h30dbe16eg2638g42b1ga135g5a7b2da4f97b" version="1">The Mage</content>
   <content contentuid="hf13bbbe9g2a78g4981ga539gd8023145fea6" version="1">The Mage is a Guardian Constellation who's Season is Rain's Hand, when Magicka was first used by mankind. His charges are the Apprentice, the Atronach, and the Ritual. Those born under the Mage have more Magicka and talent for all kinds of spellcasting, but are often arrogant and absent-minded.
 
-    Powers: &lt;LSTag Type="Spell" Tooltip="AGTT_Shout_Fay"&gt;Fay&lt;/LSTag&gt;</content>
+    Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_Mage"&gt;Fay&lt;/LSTag&gt;</content>
   <content contentuid="h4952aaacge03cg423cga6b8g75374913d7cc" version="1">Fay</content>
-  <content contentuid="h6fa8d5bdg0ac7g498eg8ef1gf82584961700" version="1">Those born under the sign of the Mage may add their Intelligence &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; to their Spell Attack Damage once per short rest.</content>
+  <content contentuid="h6fa8d5bdg0ac7g498eg8ef1gf82584961700" version="1">Those born under the sign of the Mage may add their Spellcasting Ability &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt; to their Spell Attack Damage once per short rest.</content>
   <content contentuid="hc62a3b00g5b04g4355gaaefgc4a0dfab32b8" version="1">Those born under the sign of the Mage have the power to restore a Level [1] &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.</content>
   <content contentuid="h326ed7c5g7345g4081g8fe5ge8a80cafa651" version="1">Fay (Level 1)</content>
   <content contentuid="h0afcb26cgb8e9g411agb2d6g8ce18e208330" version="1">Fay (Level 2)</content>

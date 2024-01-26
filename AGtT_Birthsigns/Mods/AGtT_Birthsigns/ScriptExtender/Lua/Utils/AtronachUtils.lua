@@ -13,7 +13,7 @@ function Utils.TransferResource(entity, baseResource)
 
   local delta = currentBaseSlots - baseAmountToIgnore
   local newCurrentStuntedSlots = currentStuntedSlots + delta
-  _P("Delta: " .. delta .. ", CurrentBaseSlots: " .. currentBaseSlots .. ", currentStuntedSlots: " .. currentStuntedSlots .. ", baseAmountToIgnore: " .. baseAmountToIgnore .. ", newCurrentStuntedSlots: " .. newCurrentStuntedSlots)
+  -- _P("Delta: " .. delta .. ", CurrentBaseSlots: " .. currentBaseSlots .. ", currentStuntedSlots: " .. currentStuntedSlots .. ", baseAmountToIgnore: " .. baseAmountToIgnore .. ", newCurrentStuntedSlots: " .. newCurrentStuntedSlots)
   -- Add Slots to StuntedSlots
   if delta > 0 then
     Utils.IncrementStuntedSlots(entity, currentStuntedSlots, newCurrentStuntedSlots, baseResource.Level)
@@ -141,7 +141,6 @@ end
 
 function Utils.SetStuntedSlotsFromModvars(entity)
   CLUtils.Info("Entering CallForTransfer", Globals.InfoOverride)
-  _D(entity.Uuid)
   local slotTable = CLUtils.FilterEntityResources(Globals.ValidSlots, entity.ActionResources.Resources)
   for _, slotObj in pairs(slotTable) do
     local storedPreviousAmount = Utils.GetSlotValue(entity.Uuid.EntityUuid, slotObj.Name,
