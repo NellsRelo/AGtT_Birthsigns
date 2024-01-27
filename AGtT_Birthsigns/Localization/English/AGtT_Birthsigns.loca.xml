@@ -41,13 +41,13 @@
     Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_Lord"&gt;Troll-kin&lt;/LSTag&gt;
     Powers: &lt;LSTag Type="Spell" Tooltip="AGTT_BS_BloodOfTheNorth"&gt;Blood of the North&lt;/LSTag&gt;</content>
   <content contentuid="h3be9c98fgfa5dg46e8g850eg5b08863dc43c" version="1">Elfborn</content>
-  <content contentuid="hec643d18gfb68g49ccg8fffgd9a18622faa9" version="1">You are &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerable&lt;/LSTag&gt; to Magical attacks. You also gain an additional 1st Level &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;, and receive the spell Thunderwave.</content>
+  <content contentuid="hec643d18gfb68g49ccg8fffgd9a18622faa9" version="1">You are &lt;LSTag Tooltip="Vulnerable"&gt;Vulnerable&lt;/LSTag&gt; to Magical attacks. You also gain a 2nd Level &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;, and receive your choice of the following spells: &lt;LSTag Type="Spell" Tooltip="CL_Target_AlterWeapon"&gt;Alter Weapon&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Shout_FireShield"&gt;Fire Shield&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Shout_FrostBarrier"&gt;Forst Barrier&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Shout_LightningShield"&gt;Lightning Shield&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Shout_Spellstrike"&gt;Spellstrike&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Target_CharmingTouch"&gt;Charming Touch&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Target_DemoralizingTouch"&gt;Demoralizing Touch&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Target_FrenzyingTouch"&gt;Frenzying Touch&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Target_HeroicTouch"&gt;Heroic Touch&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Target_Glamour"&gt;Glamour&lt;/LSTag&gt;.</content>
   <content contentuid="h78795127g018bg4dfag80c6g27bd2aec6f90" version="1">The Apprentice</content>
   <content contentuid="he2abacb3gaefeg429agba51gc5960d48e096" version="1">The Apprentice's Season is Sun's Height. Those born under the sign of the Apprentice have a special affinity for magic of all kinds, but are equally as vulnerable to it.
 
     Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_Apprentice"&gt;Elfborn&lt;/LSTag&gt;</content>
   <content contentuid="hf1f4b138gb9a7g44c3g9da9g4082e6a09eb0" version="1">Elfborn Spell Choice</content>
-  <content contentuid="h77694445g01f5g4c3dga189g3e2814a5e528" version="1">You are granted one of the following spells of your choice.</content>
+  <content contentuid="h77694445g01f5g4c3dga189g3e2814a5e528" version="1">You are granted one of the following spells of your choice: &lt;LSTag Type="Spell" Tooltip="CL_Target_AlterWeapon"&gt;Alter Weapon&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Shout_FireShield"&gt;Fire Shield&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Shout_FrostBarrier"&gt;Forst Barrier&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Shout_LightningShield"&gt;Lightning Shield&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Shout_Spellstrike"&gt;Spellstrike&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Target_CharmingTouch"&gt;Charming Touch&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Target_DemoralizingTouch"&gt;Demoralizing Touch&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Target_FrenzyingTouch"&gt;Frenzying Touch&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Target_HeroicTouch"&gt;Heroic Touch&lt;/LSTag&gt;, &lt;LSTag Type="Spell" Tooltip="CL_Target_Glamour"&gt;Glamour&lt;/LSTag&gt;.</content>
   <content contentuid="h3b87f330g49e9g48ffgb735g4ecc81ab7474" version="1">The Ritual</content>
   <content contentuid="hd20017c6gf7a5g4ff4ga80ega91debb9cb44" version="1">The Ritual is one of the Mage's Charges and its Season is Morning Star. Those born under this sign have a variety of abilities depending on the aspects of the moons and the Divines.
 
@@ -65,7 +65,7 @@
   <content contentuid="hb9e8a81dgb1ddg4097g87f4gb3694495b430" version="1">Warden</content>
   <content contentuid="hf04af7fcg44e4g4e23g84b1gf12db2df615c" version="1">Those born under the sign of the Tower have &lt;LSTag Tooltip="Proficiency"&gt;Proficiency&lt;/LSTag&gt; in &lt;LSTag Tooltip="SleightOfHand"&gt;Sleight Of Hand&lt;/LSTag&gt;.</content>
   <content contentuid="he571c6bbg0404g4323gb2efgf0256af86ba4" version="1">Blood of the North</content>
-  <content contentuid="hd04cc5ebgb2abg4267ga2d2gfd778df84c23" version="1">Your Lordly blood heals you for 3 points at the beginning of each of your turns for the duration of the power.</content>
+  <content contentuid="hd04cc5ebgb2abg4267ga2d2gfd778df84c23" version="1">Your Lordly blood heals you for [1] at the beginning of each of your turns for the duration of the power.</content>
   <content contentuid="h568964c9g3e17g4b55g8d40ge484c402b613" version="1">Your Lordly blood is giving you [1] at the start of each turn.</content>
   <content contentuid="hea6221fcg24c8g4546g8fc4g406869ee4415" version="1">Mara's Gift</content>
   <content contentuid="h4d852aadgf981g4f2fgbf77g67d4cf7bb599" version="1">Once per short or long rest, you may restore an amount of &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt; equal to [1].</content>
@@ -76,7 +76,7 @@
   <content contentuid="h416aa5ccg594cg4a06g89d7g8985400ab5e1" version="1">The Shadow</content>
   <content contentuid="h376e999eg0cb9g490egb71bge2e903bc17b8" version="1">The Shadow's Season is Second Seed. The Shadow grants those born under her sign the ability to hide in Shadows. They often go unnoticed even when their presence should be obvious.
 
-    Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_Shadow"&gt;Moonshadow&lt;/LSTag&gt;</content>
+    Passives: &lt;LSTag Type="Passive" Tooltip="AGTT_BS_Moonshadow"&gt;Moonshadow&lt;/LSTag&gt;</content>
   <content contentuid="h0a32555egc354g467cg807fgf55fc038ffe2" version="1">Moonshadow</content>
   <content contentuid="hafb80940g9e61g4c0fgbb8dgf4ed697126a5" version="1">When using this power, you and the items you carry are &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt;.</content>
   <content contentuid="h9680d280g7d9bg4b9ag9a2dg1b0576fd6464" version="1">The Tower</content>
