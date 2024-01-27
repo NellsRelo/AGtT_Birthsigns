@@ -1,5 +1,5 @@
 # Adventurer's Guide to Tamriel: Birthsigns
-[![GitHub release](https://img.shields.io/github/v/tag/NellsRelo/AGtT_Birthsigns?label=Latest%20Version)](https://GitHub.com/NellsRelo/AGtT_Birthsigns/releases/) [![GitHub commits](https://img.shields.io/github/commits-since/NellsRelo/AGtT_Birthsigns/0.3.0/main)](https://GitHub.com/NellsRelo/AGtT_Birthsigns/commit/)
+[![GitHub release](https://img.shields.io/github/v/tag/NellsRelo/AGtT_Birthsigns?label=Latest%20Version)](https://GitHub.com/NellsRelo/AGtT_Birthsigns/releases/) [![GitHub commits](https://img.shields.io/github/commits-since/NellsRelo/AGtT_Birthsigns/0.3/main)](https://GitHub.com/NellsRelo/AGtT_Birthsigns/commit/)
 
 This mod adapts the Birthsigns Rules from Adventurer's Guide to Tamriel.
 
