@@ -23,6 +23,12 @@
           <attribute id="UUID" type="guid" value="b10fb508-d9f1-4ce2-b89e-e5bc70e3cdfd"/>
         </node>
         <node id="Background">
+          <attribute id="Description" type="TranslatedString" handle="h535f1564g022ag4aedgba1eg0ea3b95f11e1" version="6"/>
+          <attribute id="DisplayName" type="TranslatedString" handle="h3cdcb660g35c7g40e8gbaf4gd9669fb88d1f" version="1"/>
+          <attribute id="Passives" type="LSString" value="AGTT_BS_Lord"/>
+          <attribute id="UUID" type="guid" value="ef0eabe1-b8fd-4b16-bc0c-931c74cb77f4"/>
+        </node>
+        <node id="Background">
           <attribute id="Description" type="TranslatedString" handle="h211c7b5fgf041g4e5eg90b5ge7bd39d1a2a8" version="6"/>
           <attribute id="DisplayName" type="TranslatedString" handle="h8f9ca080g6b83g44c9gb560ga9a57a186c11" version="1"/>
           <attribute id="Passives" type="LSString" value="AGTT_BS_Lady"/>
@@ -33,12 +39,6 @@
           <attribute id="DisplayName" type="TranslatedString" handle="h0f88b1fdgac95g459bgbbaeg2de069cb2487" version="1"/>
           <attribute id="Passives" type="LSString" value="AGTT_BS_Steed"/>
           <attribute id="UUID" type="guid" value="dbd2ee1a-a3b8-47c8-aa7b-b7cffd58829e"/>          
-        </node>
-        <node id="Background">
-          <attribute id="Description" type="TranslatedString" handle="h535f1564g022ag4aedgba1eg0ea3b95f11e1" version="6"/>
-          <attribute id="DisplayName" type="TranslatedString" handle="h3cdcb660g35c7g40e8gbaf4gd9669fb88d1f" version="1"/>
-          <attribute id="Passives" type="LSString" value="AGTT_BS_Lord"/>
-          <attribute id="UUID" type="guid" value="ef0eabe1-b8fd-4b16-bc0c-931c74cb77f4"/>
         </node>
         <node id="Background">
           <attribute id="Description" type="TranslatedString" handle="he2abacb3gaefeg429agba51gc5960d48e096" version="6"/>
