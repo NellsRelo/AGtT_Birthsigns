@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="326"/>
+  <region id="BackgroundGoals">
+    <node id="root">
+      <children>
+        <node id="BackgroundGoal">
+          <attribute id="BackgroundUUID" type="guid" value="ecb6ee29-5805-474b-9eb7-1d5ee7b89eba"/>
+          <attribute id="Description" type="TranslatedString" handle="h548c153fga9bfg4d2ega10cg1a7944ca514b" version="1"/>
+          <attribute id="ExperienceReward" type="guid" value="90f636c0-2d85-46d8-9760-30b57c664f4b"/>
+          <attribute id="InspirationPoints" type="uint32" value="1"/>
+          <attribute id="RewardLevel" type="uint32" value="2"/>
+          <attribute id="Title" type="TranslatedString" handle="h3ecb1c44g0349g4cfbgaa2cg2c08cbf22b63" version="1"/>
+          <attribute id="UUID" type="guid" value="261cf8cb-a978-4560-b8f4-9db43a734509"/>
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

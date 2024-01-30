@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="0" build="58" lslib_meta="v1,bswap_guids" />
+	<region id="Tags">
+		<node id="Tags">
+			<attribute id="Description" type="LSString" value="" />
+			<attribute id="DisplayDescription" type="TranslatedString" handle="h913f8f46gbf83g430cgb3d1ge7c017689ae9" version="1" />
+			<attribute id="DisplayName" type="TranslatedString" handle="h4fce3c63ge9a2g4bfeg9248gfb0c2ee004c1" version="1" />
+			<attribute id="Icon" type="FixedString" value="" />
+			<attribute id="Name" type="FixedString" value="AGTT_BS_WARRIOR" />
+			<attribute id="UUID" type="guid" value="1ea45ccc-f072-4d0f-880e-896dbe56038b.lsf" />
+			<children>
+				<node id="Categories">
+					<children>
+						<node id="Category">
+							<attribute id="Name" type="LSString" value="Code" />
+						</node>
+						<node id="Category">
+							<attribute id="Name" type="LSString" value="Dialog" />
+						</node>
+						<node id="Category">
+							<attribute id="Name" type="LSString" value="Background" />
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

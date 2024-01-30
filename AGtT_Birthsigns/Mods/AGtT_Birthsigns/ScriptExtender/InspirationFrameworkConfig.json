@@ -1,0 +1,75 @@
+{
+  "FileVersion": 1,
+  "Backgrounds": [
+    {
+      "Name": "AGTT_BS_WARRIOR",
+      "Id": "4f816071-1bd3-4c0c-8f3e-6d21bb4f6307",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_MAGE",
+      "Id": "21ae9935-4e17-4f07-a188-676527665c20",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_THIEF",
+      "Id": "b10fb508-d9f1-4ce2-b89e-e5bc70e3cdfd",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_LORD",
+      "Id": "ef0eabe1-b8fd-4b16-bc0c-931c74cb77f4",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_LADY",
+      "Id": "97354dd3-a0b8-4f65-af2c-fc9b200142d4",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_STEED",
+      "Id": "dbd2ee1a-a3b8-47c8-aa7b-b7cffd58829e",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_APPRENTICE",
+      "Id": "ecb6ee29-5805-474b-9eb7-1d5ee7b89eba",
+      "Goals": [
+        {
+          "Name": "Act1_AGTTBS_Apprentice_DivinityUndone",
+          "Id": "261cf8cb-a978-4560-b8f4-9db43a734509"
+        }
+      ]
+    },
+    {
+      "Name": "AGTT_BS_ATRONACH",
+      "Id": "8c1d5393-fc70-4fc2-bd75-11149db5ab93",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_RITUAL",
+      "Id": "1a2ec513-f718-46a1-97be-893d8165074c",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_LOVER",
+      "Id": "37723cca-db83-439e-9bf2-125980ef3498",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_SHADOW",
+      "Id": "f0c8d1c1-352e-4445-9e31-1609805e1f61",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_TOWER",
+      "Id": "a112a157-ec08-4f7c-9fc3-2bffe208860a",
+      "Goals": []
+    },
+    {
+      "Name": "AGTT_BS_SERPENT",
+      "Id": "01c7e1e2-689a-4aed-8077-cda494a79337",
+      "Goals": []
+    }
+  ]
+}
